@@ -7,7 +7,7 @@ export class RemoteAddAccount implements IAddAccount {
   constructor(
     private readonly url: string,
     private readonly httpPostClient: IHttpClient<RemoteAddAccountNamespace.Model>
-  ) {}
+  ) { }
 
   async add(
     params: AddAccount.Params
@@ -22,7 +22,7 @@ export class RemoteAddAccount implements IAddAccount {
       case HttpStatusCode.created:
         return httpResponse.body;
       default:
-        throw new UnexpectedError(httpResponse.body.message);
+        throw new UnexpectedError();
     }
   }
 }

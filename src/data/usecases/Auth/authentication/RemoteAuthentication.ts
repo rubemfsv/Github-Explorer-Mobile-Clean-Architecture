@@ -22,7 +22,7 @@ export class RemoteAuthentication implements IAuthentication {
       case HttpStatusCode.ok:
         return httpResponse.body;
       default:
-        throw new UnexpectedError(httpResponse.body.message);
+        throw new UnexpectedError();
     }
   }
 }

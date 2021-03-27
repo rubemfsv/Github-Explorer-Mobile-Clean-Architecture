@@ -12,6 +12,8 @@ target 'testrnca' do
     :hermes_enabled => false
   )
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'testrncaTests' do
     inherit! :complete
     # Pods for testing

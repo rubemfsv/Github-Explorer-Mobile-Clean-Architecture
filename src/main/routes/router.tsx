@@ -1,7 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { Dashboard, SignIn } from "../../presentation/screens";
+import { makeDashboard } from "../factories/screens";
+
+import { SignIn } from "../../presentation/screens";
 
 const App = createStackNavigator();
 
@@ -12,7 +14,7 @@ const AppRoutes: React.FC = () => (
       cardStyle: { backgroundColor: "#312E38" },
     }}
   >
-    <App.Screen name="Dashboard" component={Dashboard} />
+    <App.Screen name="Dashboard" component={makeDashboard} />
     <App.Screen name="SignIn" component={SignIn} />
   </App.Navigator>
 );

@@ -1,5 +1,5 @@
-import { IGetStorage } from '@/data/protocols/cache/getStorage';
-import { ISetStorage } from '@/data/protocols/cache/SetStorage';
+import { IGetStorage } from '../../data/protocols/cache/getStorage';
+import { ISetStorage } from '../../data/protocols/cache/SetStorage';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export class AsyncStorageAdapter implements ISetStorage, IGetStorage {

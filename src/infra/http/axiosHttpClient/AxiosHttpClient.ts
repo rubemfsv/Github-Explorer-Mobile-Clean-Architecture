@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse, IHttpClient } from '@/data/protocols/http'
+import { HttpRequest, HttpResponse, IHttpClient } from '../../../data/protocols/http'
 
 import axios, { AxiosResponse } from 'axios'
 

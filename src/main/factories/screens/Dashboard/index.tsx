@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Dashboard } from "../../../../presentation/screens";
+import { makeLoadUserRepositoryList } from "../../usecases";
 
 const makeDashboard: React.FC = () => {
-  return <Dashboard />;
+  const loadUserRepositoryList = useCallback((id: string) => {
+    return makeLoadUserRepositoryList(id);
+  }, []);
+
+  return <Dashboard loadUserRepositoryList={loadUserRepositoryList} />;
 };
 
 export default makeDashboard;

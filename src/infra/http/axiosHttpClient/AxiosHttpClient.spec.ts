@@ -1,6 +1,6 @@
-import { AxiosHttpClient } from '@/infra/http/axiosHttpClient/AxiosHttpClient';
-import { mockAxios, mockHttpResponse } from '@/infra/test';
-import { mockHttpRequest } from '@/data/test';
+import { AxiosHttpClient } from '../../http/axiosHttpClient/AxiosHttpClient';
+import { mockAxios, mockHttpResponse } from '../../test';
+import { mockHttpRequest } from '../../../data/test';
 
 import axios from 'axios';
 

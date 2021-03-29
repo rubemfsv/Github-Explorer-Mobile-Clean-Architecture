@@ -1,4 +1,3 @@
-import { HttpResponseModel } from '@/domain/models';
 
 export type HttpRequest = {
   url: string;

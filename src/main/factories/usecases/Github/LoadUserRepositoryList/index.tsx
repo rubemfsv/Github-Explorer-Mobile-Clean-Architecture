@@ -1,10 +1,12 @@
-import { RemoteLoadUserRepositoryList } from "@/data/usecases/";
-import { ILoadUserRepositoryToList } from "@/domain/usecases";
-import { makeAxiosHttpClient, makeApiUrl } from "@/main/factories/http";
+import { RemoteLoadUserRepositoryList } from "../../../../../data/usecases/";
+import { ILoadUserRepositoryToList } from "../../../../../domain/usecases";
+import { makeAxiosHttpClient, makeApiUrl } from "../../../http";
 
-export const makeLoadUserRepositoryList = (): ILoadUserRepositoryToList => {
+export const makeLoadUserRepositoryList = (
+  user: string
+): ILoadUserRepositoryToList => {
   const remoteLoadUserRepositoryList = new RemoteLoadUserRepositoryList(
-    makeApiUrl("/auth"),
+    makeApiUrl(`/users/${user}/repos`),
     makeAxiosHttpClient()
   );
 

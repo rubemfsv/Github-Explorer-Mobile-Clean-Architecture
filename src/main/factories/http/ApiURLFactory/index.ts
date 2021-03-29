@@ -1,4 +1,4 @@
 export const makeApiUrl = (path: string): string => {
-  const url = `${process.env.API_URL}${path}`;
+  const url = `https://api.github.com${path}`;
   return url;
 };

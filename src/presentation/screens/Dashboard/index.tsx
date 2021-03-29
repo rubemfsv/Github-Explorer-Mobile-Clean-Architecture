@@ -1,14 +1,32 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { ILoadUserRepositoryToList } from "@/domain/usecases";
 
-export default function Dashboard() {
+type DashboardTypes = {
+  loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
+};
+
+const Dashboard: React.FC<DashboardTypes> = ({
+  loadUserRepositoryList,
+}: DashboardTypes) => {
   const { navigate } = useNavigation();
 
   const onOpen = useCallback(() => {
     navigate("SignIn");
   }, [navigate]);
+
+  useEffect(() => {
+    try {
+      loadUserRepositoryList("rubemfsv")
+        .loadAll()
+        .then((response) => console.log(response))
+        .catch((error) => console.log("errorrhe", error));
+    } catch (error) {
+      console.log("catch", error);
+    }
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -28,4 +46,6 @@ export default function Dashboard() {
       </View>
     </View>
   );
-}
+};
+
+export default Dashboard;

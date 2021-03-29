@@ -1,7 +1,7 @@
-import { HttpStatusCode, IHttpClient } from '@/data/protocols/http';
-import { AccessDeniedError, UnexpectedError } from '@/domain/errors';
-import { RepositoryModel } from '@/domain/models';
-import { ILoadUserRepositoryToList } from '@/domain/usecases/';
+import { HttpStatusCode, IHttpClient } from '../../../protocols/http';
+import { AccessDeniedError, UnexpectedError } from '../../../../domain/errors';
+import { RepositoryModel } from '../../../../domain/models';
+import { ILoadUserRepositoryToList } from '../../../../domain/usecases/';
 
 export class RemoteLoadUserRepositoryList implements ILoadUserRepositoryToList {
   constructor(

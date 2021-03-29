@@ -1,1 +1,1 @@
-# RN-CA-Boilerplate
+# Github Explorer Mobile Clean Architecture

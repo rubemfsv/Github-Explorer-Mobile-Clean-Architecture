@@ -24,5 +24,9 @@ export const styles = StyleSheet.create({
     flex: normalize(1),
     color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(16)
+  },
+  icon: {
+    marginRight: normalize(16),
+    fontSize: normalize(20),
   }
 });

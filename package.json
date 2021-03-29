@@ -21,8 +21,7 @@
     "react-native-normalize": "^1.0.1",
     "react-native-reanimated": "^2.0.1",
     "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "^2.18.1",
-    "react-native-vector-icons": "^8.1.0"
+    "react-native-screens": "^2.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -42,6 +41,7 @@
     "jest-localstorage-mock": "^2.4.8",
     "metro-react-native-babel-preset": "^0.64.0",
     "mock-async-storage": "^2.2.0",
+    "react-native-vector-icons": "^8.1.0",
     "react-test-renderer": "17.0.1",
     "ts-jest": "^26.5.4",
     "typescript": "^3.8.3"

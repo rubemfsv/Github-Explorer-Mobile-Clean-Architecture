@@ -18,6 +18,7 @@ export class PaletteColors {
   static $paletteGrey100 = "#454d55"
   static $paletteGrey200 = "#4b4b4b"
   static $paletteGrey300 = "#2b2826"
+  static $paletteGrey500 = "#232129"
 
   static $paletteErrorRed50 = "#ffebee";
   static $paletteErrorRed100 = "#ffcdd2";

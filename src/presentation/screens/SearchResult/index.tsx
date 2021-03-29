@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ILoadUserRepositoryToList } from "@/domain/usecases";
 import { RepositoryModel } from "@/domain/models";
+import { FlatList } from "react-native-gesture-handler";
+import RepositoryItem from "./RepositoryItem";
 
 type SearchResultTypes = {
   loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
@@ -21,7 +23,7 @@ const SearchResult: React.FC<SearchResultTypes> = ({
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
   const { githubUsername } = routeParams;
-  
+
   const handlePress = useCallback(() => {
     navigate("Home");
   }, [navigate]);
@@ -42,7 +44,15 @@ const SearchResult: React.FC<SearchResultTypes> = ({
       <View style={styles.containerHeader}>
         <Text style={styles.screenTitle}>Search Result</Text>
       </View>
-      <ScrollView style={styles.bodyContainer}></ScrollView>
+      <FlatList
+        style={styles.searchList}
+        data={searchResult}
+        keyExtractor={(repository) => repository.id}
+        ListHeaderComponent={<Text style={styles.listTitle}>Repositories</Text>}
+        renderItem={(repository: any): any => (
+          <RepositoryItem repository={repository} />
+        )}
+      />
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={handlePress}

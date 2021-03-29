@@ -4,7 +4,8 @@ import { PaletteColors } from "../../styles/PalleteColors";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: PaletteColors.$paletteErrorRed300
+    backgroundColor: PaletteColors.$paletteErrorRed300,
+    flex: normalize(1)
   },
   containerHeader: {
     alignItems: 'center',
@@ -19,16 +20,21 @@ export const styles = StyleSheet.create({
     color: PaletteColors.$palettePrimaryDark,
     fontSize: normalize(30),
   },
-  bodyContainer: {
-    height: (Dimensions.get('window').height) * 0.76,
-    width: Dimensions.get("window").width,
+  searchList: {
     backgroundColor: PaletteColors.$paletteErrorRed200,
+    paddingLeft: normalize(32),
+    paddingRight: normalize(32),
+    paddingTop: normalize(24),
+    paddingBottom: normalize(16)
   },
-  input: {
-    height: 50,
-    width: Dimensions.get("window").width * 0.70,
-    borderWidth: 1,
-    alignSelf: 'center',
+  listTitle: {
+    fontSize: normalize(24),
+    marginBottom: normalize(24),
+    color: PaletteColors.$palettePrimaryDark
+  },
+  listText: {
+    color: PaletteColors.$paletteSecondaryLight,
+    fontSize: normalize(20),
   },
   buttonContainer: {
     width: Dimensions.get("window").width,

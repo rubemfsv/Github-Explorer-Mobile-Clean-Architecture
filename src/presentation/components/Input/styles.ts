@@ -3,7 +3,24 @@ import normalize from 'react-native-normalize'
 import { PaletteColors } from "../../styles/PalleteColors";
 
 export const styles = StyleSheet.create({
-  container: {
+  containerActive: {
+    width: Dimensions.get('window').width * 0.7,
+    height: normalize(50),
+    alignSelf: 'center',
+    backgroundColor: PaletteColors.$paletteGrey300,
+    paddingLeft: normalize(16),
+    paddingRight: normalize(16),
+    borderBottomEndRadius: normalize(8),
+    borderBottomStartRadius: normalize(8),
+    borderTopEndRadius: normalize(8),
+    borderTopStartRadius: normalize(8),
+    marginBottom: normalize(8),
+    borderWidth: 2,
+    borderColor: PaletteColors.$paletteGreen300,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  containerInactive: {
     width: Dimensions.get('window').width * 0.7,
     height: normalize(50),
     alignSelf: 'center',
@@ -25,8 +42,14 @@ export const styles = StyleSheet.create({
     color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(16)
   },
-  icon: {
+  iconActive: {
     marginRight: normalize(16),
     fontSize: normalize(20),
-  }
+    color: PaletteColors.$paletteGreen300
+  },
+  iconInactive: {
+    marginRight: normalize(16),
+    fontSize: normalize(20),
+    color: PaletteColors.$palettePrimaryMain
+  },
 });

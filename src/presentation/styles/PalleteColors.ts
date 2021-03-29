@@ -9,16 +9,23 @@ export class PaletteColors {
   private constructor() { }
 
 
-  static $palettePrimaryDark = "#000000"
-  static $palettePrimaryMain = "#707070"
-  static $paletteSecondaryLight = "#FFFFFF"
-  static $paletteSecondaryGrey = "#3e3b47"
+  static $palettePrimaryDark = "#000000";
+  static $palettePrimaryMain = "#707070";
+  static $paletteSecondaryLight = "#FFFFFF";
+  static $paletteSecondaryGrey = "#3e3b47";
 
-  static $paletteGrey50 = "#95999c"
-  static $paletteGrey100 = "#454d55"
-  static $paletteGrey200 = "#4b4b4b"
-  static $paletteGrey300 = "#2b2826"
-  static $paletteGrey500 = "#232129"
+  static $paletteGrey50 = "#95999c";
+  static $paletteGrey100 = "#454d55";
+  static $paletteGrey200 = "#4b4b4b";
+  static $paletteGrey300 = "#2b2826";
+  static $paletteGrey500 = "#232129";
+
+  static $paletteGreen100 = "#66ffbd";
+  static $paletteGreen200 = "#00fa9a";
+  static $paletteGreen300 = "#00e88f";
+  static $paletteGreen400 = "#08db88";
+  static $paletteGreen500 = "#00c974";
+  static $paletteGreen600 = "#239e5d";
 
   static $paletteErrorRed50 = "#ffebee";
   static $paletteErrorRed100 = "#ffcdd2";

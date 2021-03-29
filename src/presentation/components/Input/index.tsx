@@ -3,7 +3,9 @@ import { TextInputProps } from "react-native";
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FeatherIcon from "react-native-vector-icons/Feather";
+
 import { styles } from "./styles";
+import { PaletteColors } from "../../styles/PalleteColors";
 
 interface IInputProps extends TextInputProps {
   name: string;
@@ -33,11 +35,18 @@ const Input: React.FC<IInputProps> = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        blurred || state.length > 0
+          ? styles.containerActive
+          : styles.containerInactive
+      }
+    >
       <FeatherIcon
-        style={styles.icon}
+        style={
+          blurred || state.length > 0 ? styles.iconActive : styles.iconInactive
+        }
         name={icon}
-        color={blurred || state.length > 0 ? "#ff9000" : "#666360"}
       />
       <TextInput
         style={styles.textInput}

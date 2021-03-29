@@ -4,13 +4,14 @@ import { PaletteColors } from "../../styles/PalleteColors";
 
 export const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    alignItems: 'center',
-    backgroundColor: PaletteColors.$paletteErrorRed200
+    backgroundColor: PaletteColors.$paletteErrorRed300
   },
   containerHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    paddingBottom: normalize(20),
+    width: Dimensions.get("window").width,
+    backgroundColor: PaletteColors.$paletteErrorRed300,
+    borderBottomWidth: normalize(3),
     marginTop: normalize(45),
     paddingStart: normalize(22)
   },
@@ -18,7 +19,17 @@ export const styles = StyleSheet.create({
     color: PaletteColors.$palettePrimaryDark,
     fontSize: normalize(30),
   },
-
+  bodyContainer: {
+    height: (Dimensions.get('window').height) * 0.76,
+    width: Dimensions.get("window").width,
+    backgroundColor: PaletteColors.$paletteErrorRed200,
+  },
+  input: {
+    height: 50,
+    width: Dimensions.get("window").width * 0.70,
+    borderWidth: 1,
+    alignSelf: 'center',
+  },
   buttonContainer: {
     width: Dimensions.get("window").width,
     marginBottom: normalize(2),
@@ -26,7 +37,6 @@ export const styles = StyleSheet.create({
   buttonStyles: {
     backgroundColor: PaletteColors.$paletteErrorRedA700,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   buttonText: {
     marginTop: normalize(12),

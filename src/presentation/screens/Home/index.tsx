@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { TextInput } from "react-native-gesture-handler";
+import { Input } from "../../../presentation/components";
 
 type HomeTypes = {};
 
@@ -12,15 +12,15 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
 
   const handlePress = useCallback(
     (user: string) => {
-      console.log('user',user)
+      console.log("user", user);
       navigate("SearchResult", { githubUsername: user });
     },
     [navigate]
   );
 
-  const handleInputChange = (text: string): void => {
+  const getInputValue = useCallback((text: string) => {
     setSearchUser(text);
-  };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -28,11 +28,11 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
         <Text style={styles.screenTitle}>Github Explorer</Text>
       </View>
       <View style={styles.bodyContainer}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(value) => handleInputChange(value)}
-          value={searchUser}
+        <Input
+          icon="user"
           placeholder="Type a valid user"
+          name="Teste"
+          getInputValue={getInputValue}
         />
       </View>
       <View style={styles.buttonContainer}>

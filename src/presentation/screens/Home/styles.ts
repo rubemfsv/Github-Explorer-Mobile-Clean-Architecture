@@ -4,33 +4,28 @@ import { PaletteColors } from "../../styles/PalleteColors";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: PaletteColors.$paletteErrorRed300
+    backgroundColor: PaletteColors.$paletteGrey300
   },
   containerHeader: {
     alignItems: 'center',
     paddingBottom: normalize(20),
     width: Dimensions.get("window").width,
-    backgroundColor: PaletteColors.$paletteErrorRed300,
+    backgroundColor: PaletteColors.$paletteGrey300,
     borderBottomWidth: normalize(3),
     marginTop: normalize(45),
     paddingStart: normalize(22)
   },
   screenTitle: {
-    color: PaletteColors.$palettePrimaryDark,
+    color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(30),
   },
   bodyContainer: {
     height: (Dimensions.get('window').height) * 0.76,
     width: Dimensions.get("window").width,
-    backgroundColor: PaletteColors.$paletteErrorRed200,
+    backgroundColor: PaletteColors.$paletteGrey200,
     justifyContent: 'center',
   },
-  input: {
-    height: 50,
-    width: Dimensions.get("window").width * 0.70,
-    borderWidth: 1,
-    alignSelf: 'center',
-  },
+  
   buttonContainer: {
     width: Dimensions.get("window").width,
     marginBottom: normalize(2),

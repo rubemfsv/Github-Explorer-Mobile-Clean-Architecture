@@ -14,6 +14,11 @@ export class PaletteColors {
   static $paletteSecondaryLight = "#FFFFFF"
   static $paletteSecondaryGrey = "#3e3b47"
 
+  static $paletteGrey50 = "#95999c"
+  static $paletteGrey100 = "#454d55"
+  static $paletteGrey200 = "#4b4b4b"
+  static $paletteGrey300 = "#2b2826"
+
   static $paletteErrorRed50 = "#ffebee";
   static $paletteErrorRed100 = "#ffcdd2";
   static $paletteErrorRed200 = "#ef9a9a";

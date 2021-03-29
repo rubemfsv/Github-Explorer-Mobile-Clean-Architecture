@@ -1,1 +1,2 @@
-export { default as makeDashboard } from './Dashboard';
+export { default as makeHomeScreen } from './Home';
+export { default as makeSearchResult } from './SearchResult';

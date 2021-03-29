@@ -1,9 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { makeDashboard } from "../factories/screens";
-
-import { SignIn } from "../../presentation/screens";
+import { makeHomeScreen, makeSearchResult } from "../factories/screens";
 
 const App = createStackNavigator();
 
@@ -14,8 +12,8 @@ const AppRoutes: React.FC = () => (
       cardStyle: { backgroundColor: "#312E38" },
     }}
   >
-    <App.Screen name="Dashboard" component={makeDashboard} />
-    <App.Screen name="SignIn" component={SignIn} />
+    <App.Screen name="Home" component={makeHomeScreen} />
+    <App.Screen name="SearchResult" component={makeSearchResult} />
   </App.Navigator>
 );
 

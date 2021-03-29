@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     paddingStart: normalize(22)
   },
   screenTitle: {
-    color: PaletteColors.$paletteSecondaryLight,
+    color: PaletteColors.$paletteGreen500,
     fontSize: normalize(30),
   },
   bodyContainer: {

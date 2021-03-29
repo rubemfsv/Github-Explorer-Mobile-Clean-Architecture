@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     borderTopStartRadius: normalize(8),
     marginBottom: normalize(8),
     borderWidth: 2,
-    borderColor: PaletteColors.$paletteGreen300,
+    borderColor: PaletteColors.$paletteGreen500,
     flexDirection: 'row',
     alignItems: 'center'
   },
@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
   iconActive: {
     marginRight: normalize(16),
     fontSize: normalize(20),
-    color: PaletteColors.$paletteGreen300
+    color: PaletteColors.$paletteGreen500
   },
   iconInactive: {
     marginRight: normalize(16),

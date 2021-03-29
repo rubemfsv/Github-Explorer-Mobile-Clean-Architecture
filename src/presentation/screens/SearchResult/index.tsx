@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { ILoadUserRepositoryToList } from "@/domain/usecases";
 import { RepositoryModel } from "@/domain/models";
 import { FlatList } from "react-native-gesture-handler";
-import RepositoryItem from "./RepositoryItem";
+import { RepositoryItem } from "../../components";
 
 type SearchResultTypes = {
   loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;

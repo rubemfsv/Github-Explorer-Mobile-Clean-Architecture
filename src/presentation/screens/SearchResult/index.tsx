@@ -8,16 +8,20 @@ import { Button, ItemToLoad } from "../../components";
 import { variantGithubEndpointTypeRender } from "../../utils";
 import { GithubListEnums } from "@/domain/enums";
 import { styles } from "./styles";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ILoadUserInfo } from "@/domain/usecases";
 
-type SearchResultTypes = {};
+type SearchResultTypes = {
+  loadUserInfo: (user: string) => ILoadUserInfo;
+};
 
 interface IRouteParams {
   searchResult: RepositoryModel[];
   type: GithubListEnums;
 }
 
-const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
+const SearchResult: React.FC<SearchResultTypes> = ({
+  loadUserInfo,
+}: SearchResultTypes) => {
   const { goBack } = useNavigation();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
@@ -44,7 +48,7 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
           }
           contentContainerStyle={styles.flatListBottom}
           renderItem={(item: any): any => (
-            <ItemToLoad item={item} type={type} />
+            <ItemToLoad item={item} type={type} loadUserInfo={loadUserInfo} />
           )}
         />
       </View>

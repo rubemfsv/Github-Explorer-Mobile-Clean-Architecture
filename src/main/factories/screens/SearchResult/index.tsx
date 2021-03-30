@@ -1,9 +1,13 @@
 import React, { useCallback } from "react";
 import { SearchResult } from "../../../../presentation/screens";
-import { makeLoadUserRepositoryList } from "../../usecases";
+import { makeLoadUserInfo } from "../../usecases";
 
 const makeSearchResult: React.FC = () => {
-  return <SearchResult />;
+  const loadUserInfo = useCallback((user: string) => {
+    return makeLoadUserInfo(user);
+  }, []);
+  
+  return <SearchResult loadUserInfo={loadUserInfo} />;
 };
 
 export default makeSearchResult;

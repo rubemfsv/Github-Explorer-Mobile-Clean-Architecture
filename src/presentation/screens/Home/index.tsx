@@ -20,11 +20,10 @@ const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
       loadUserInfo(user)
         .load()
         .then((response) => {
-          console.log("deu", response);
-          setSearchError(false)
+          navigate("UserInfo", { userData: response });
+          setSearchError(false);
         })
         .catch((error) => setSearchError(true));
-      // navigate("SearchResult", { githubUsername: user });
     },
     [navigate]
   );
@@ -46,6 +45,9 @@ const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
           getInputValue={getInputValue}
           searchError={searchError}
         />
+        {searchError && (
+          <Text style={styles.errorText}>Type a valid user, please</Text>
+        )}
       </View>
       <View style={styles.buttonContainer}>
         <Button

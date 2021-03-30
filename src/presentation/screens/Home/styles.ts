@@ -25,6 +25,12 @@ export const styles = StyleSheet.create({
     backgroundColor: PaletteColors.$paletteGrey200,
     justifyContent: 'center',
   },
+  errorText: {
+    alignSelf: 'center',
+    fontSize: normalize(16),
+    color: PaletteColors.$paletteErrorRed700,
+    fontWeight: 'bold'
+  },
   buttonContainer: {
     width: Dimensions.get("window").width,
     marginBottom: normalize(2),

@@ -26,6 +26,8 @@ interface IRouteParams {
 
 const UserInfo: React.FC<UserInfoTypes> = ({
   loadUserRepositoryList,
+  loadUserFollowingList,
+  loadUserFollowersList,
 }: UserInfoTypes) => {
   const { navigate, goBack } = useNavigation();
   const { params } = useRoute();

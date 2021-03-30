@@ -14,6 +14,7 @@ export class PaletteColors {
   static $paletteSecondaryLight = "#FFFFFF";
   static $paletteSecondaryGrey = "#3e3b47";
 
+  static $paletteGrey10 = "rgba(255, 255, 255, 0.2)";
   static $paletteGrey50 = "#95999c";
   static $paletteGrey100 = "#454d55";
   static $paletteGrey200 = "#4b4b4b";

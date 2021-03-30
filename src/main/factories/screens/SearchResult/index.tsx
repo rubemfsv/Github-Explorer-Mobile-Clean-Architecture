@@ -3,11 +3,7 @@ import { SearchResult } from "../../../../presentation/screens";
 import { makeLoadUserRepositoryList } from "../../usecases";
 
 const makeSearchResult: React.FC = () => {
-  const loadUserRepositoryList = useCallback((user: string) => {
-    return makeLoadUserRepositoryList(user);
-  }, []);
-
-  return <SearchResult loadUserRepositoryList={loadUserRepositoryList} />;
+  return <SearchResult />;
 };
 
 export default makeSearchResult;

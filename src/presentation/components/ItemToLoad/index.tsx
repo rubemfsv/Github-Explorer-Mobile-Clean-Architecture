@@ -9,7 +9,7 @@ import { ILoadUserInfo } from "@/domain/usecases";
 
 type ItemToLoadProps = {
   item: any;
-  type: string;
+  type: GithubListEnums;
   loadUserInfo: (user: string) => ILoadUserInfo;
 };
 
@@ -26,13 +26,24 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
         type === GithubListEnums.FOLLOWER ||
         type === GithubListEnums.FOLLOWER
       ) {
-        const user: string = itemToNavigate.item.login
+        const user: string = itemToNavigate.item.login;
         loadUserInfo(user)
           .load()
           .then((response) => {
             navigate("UserInfo", { userData: response });
           })
           .catch((error) => console.log(error));
+      } else if (type === GithubListEnums.GIST) {
+        navigate("ItemDetails", {
+          itemData: item.item,
+          type: GithubListEnums.GIST,
+        });
+        console.log(item);
+      } else if (type === GithubListEnums.REPOSITORY) {
+        navigate("ItemDetails", {
+          itemData: item.item,
+          type: GithubListEnums.REPOSITORY,
+        });
       }
     },
     [navigate]

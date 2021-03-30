@@ -11,12 +11,14 @@ interface IInputProps extends TextInputProps {
   icon: string;
   placeholder?: string;
   getInputValue: (text: string) => void;
+  searchError?: boolean;
 }
 
 const Input: React.FC<IInputProps> = ({
   name,
   getInputValue,
   placeholder,
+  searchError,
   icon,
 }: IInputProps) => {
   const inputElementRef = useRef<any>(null);
@@ -37,13 +39,19 @@ const Input: React.FC<IInputProps> = ({
     <View
       style={
         blurred || state.length > 0
-          ? styles.containerActive
+          ? searchError
+            ? styles.containerError
+            : styles.containerActive
           : styles.containerInactive
       }
     >
       <FeatherIcon
         style={
-          blurred || state.length > 0 ? styles.iconActive : styles.iconInactive
+          blurred || state.length > 0
+            ? searchError
+              ? styles.iconError
+              : styles.iconActive
+            : styles.iconInactive
         }
         name={icon}
       />

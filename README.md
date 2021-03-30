@@ -9,9 +9,9 @@ Be an application to search for information about users registered on Github, to
 
 - :pushpin: [Start](#:pushpin:-tabela-de-conteúdos)
 - :construction_worker: [Installation](#:construction_worker:-instalação)
-- - :open_file_folder: [Architecture](#:open_file_folder:-diretórios)
+- :open_file_folder: [Architecture](#:open_file_folder:-diretórios)
 
-# :construction_worker: Instalação
+# :construction_worker: Installation
 
 **You must have [NodeJS](https://nodejs.org/) (>= 10.13.0) and [Yarn](https://yarnpkg.com/) installed, and then:**
 

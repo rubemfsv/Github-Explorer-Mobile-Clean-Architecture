@@ -1,5 +1,5 @@
 import { HttpStatusCode, IHttpClient } from '../../../protocols/http';
-import { AccessDeniedError, UnexpectedError } from '../../../../domain/errors';
+import { UnexpectedError } from '../../../../domain/errors';
 import { RepositoryModel } from '../../../../domain/models';
 import { ILoadUserRepositoryToList } from '../../../../domain/usecases/';
 
@@ -21,8 +21,6 @@ export class RemoteLoadUserRepositoryList implements ILoadUserRepositoryToList {
         return remoteRepositoryToLoad;
       case HttpStatusCode.noContent:
         return httpResponse.body || null;
-      case HttpStatusCode.unauthorized:
-        throw new AccessDeniedError();
       default:
         throw new UnexpectedError();
     }

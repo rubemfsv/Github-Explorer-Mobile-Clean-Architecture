@@ -1,5 +1,5 @@
 import { HttpStatusCode, IHttpClient } from '../../../protocols/http';
-import { AccessDeniedError, UnexpectedError } from '../../../../domain/errors';
+import { UnexpectedError } from '../../../../domain/errors';
 import { UserModel } from '../../../../domain/models';
 import { ILoadUserInfo } from '../../../../domain/usecases';
 
@@ -21,8 +21,6 @@ export class RemoteLoadUserInfo implements ILoadUserInfo {
         return remoteUserInfo;
       case HttpStatusCode.noContent:
         return httpResponse.body || null;
-      case HttpStatusCode.unauthorized:
-        throw new AccessDeniedError();
       default:
         throw new UnexpectedError();
     }

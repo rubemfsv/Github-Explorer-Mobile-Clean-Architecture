@@ -23,4 +23,16 @@ export const styles = StyleSheet.create({
     color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(18)
   },
+  userContainer: {
+    flexDirection: 'row'
+  },
+  userImage: {
+    width: normalize(30),
+    height: normalize(30),
+    borderTopRightRadius: normalize(98),
+    borderTopLeftRadius: normalize(98),
+    borderBottomRightRadius: normalize(98),
+    borderBottomLeftRadius: normalize(98),
+    marginRight: normalize(14)
+  },
 });

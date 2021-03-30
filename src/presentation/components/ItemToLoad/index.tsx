@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { GithubListEnums } from "../../../domain/enums";
 
@@ -26,7 +26,13 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
         )}
         {(type === GithubListEnums.FOLLOWER ||
           type === GithubListEnums.FOLLOWING) && (
-          <Text style={styles.recButtonText}>{item.item.login}</Text>
+          <View style={styles.userContainer}>
+            <Image
+              style={styles.userImage}
+              source={{ uri: item.item.avatar_url }}
+            />
+            <Text style={styles.recButtonText}>@{item.item.login}</Text>
+          </View>
         )}
       </RectButton>
     </View>

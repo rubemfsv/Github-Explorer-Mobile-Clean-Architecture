@@ -28,16 +28,16 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>
-        <Text style={styles.screenTitle}>Search Result</Text>
+        <Text style={styles.screenTitle}>
+          {variantGithubEndpointTypeRender[type]}
+        </Text>
       </View>
       <FlatList
         style={styles.searchList}
         data={searchResult}
         keyExtractor={(repository) => repository.id}
         ListHeaderComponent={
-          <Text style={styles.listTitle}>
-            {variantGithubEndpointTypeRender[type]}
-          </Text>
+          <Text style={styles.listTitle}>Search Result</Text>
         }
         renderItem={(repository: any): any => (
           <ItemToLoad item={repository} type={type} />

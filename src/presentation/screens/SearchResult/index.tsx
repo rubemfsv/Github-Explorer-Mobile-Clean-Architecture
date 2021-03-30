@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { RepositoryModel } from "@/domain/models";
 import { FlatList } from "react-native-gesture-handler";
-import { RepositoryItem } from "../../components";
+import { ItemToLoad } from "../../components";
 import { GithubListEnums } from "../../../domain/enums";
 
 type SearchResultTypes = {};
@@ -39,7 +39,18 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
             <Text style={styles.listTitle}>Repositories</Text>
           }
           renderItem={(repository: any): any => (
-            <RepositoryItem repository={repository} />
+            <ItemToLoad item={repository} type={GithubListEnums.REPOSITORY} />
+          )}
+        />
+      )}
+      {type === GithubListEnums.GIST && (
+        <FlatList
+          style={styles.searchList}
+          data={searchResult}
+          keyExtractor={(gist) => gist.id}
+          ListHeaderComponent={<Text style={styles.listTitle}>Gists</Text>}
+          renderItem={(gist: any): any => (
+            <ItemToLoad item={gist} type={GithubListEnums.GIST} />
           )}
         />
       )}

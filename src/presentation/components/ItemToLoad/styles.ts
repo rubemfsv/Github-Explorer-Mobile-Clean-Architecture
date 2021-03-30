@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   userContainer: {
     flexDirection: 'row'
   },
-  userImage: {
+  userAvatar: {
     width: normalize(30),
     height: normalize(30),
     borderTopRightRadius: normalize(98),

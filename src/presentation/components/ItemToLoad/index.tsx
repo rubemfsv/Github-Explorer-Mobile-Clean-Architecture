@@ -28,7 +28,7 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
           type === GithubListEnums.FOLLOWING) && (
           <View style={styles.userContainer}>
             <Image
-              style={styles.userImage}
+              style={styles.userAvatar}
               source={{ uri: item.item.avatar_url }}
             />
             <Text style={styles.recButtonText}>@{item.item.login}</Text>

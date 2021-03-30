@@ -8,10 +8,16 @@ import { Button } from "../../../presentation/components";
 import { UserModel } from "../../../domain/models";
 
 import { styles } from "./styles";
-import { ILoadUserRepositoryToList } from "@/domain/usecases";
+import {
+  ILoadUserFollowersList,
+  ILoadUserFollowingList,
+  ILoadUserRepositoryToList,
+} from "@/domain/usecases";
 
 type UserInfoTypes = {
   loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
+  loadUserFollowingList: (user: string) => ILoadUserFollowingList;
+  loadUserFollowersList: (user: string) => ILoadUserFollowersList;
 };
 
 interface IRouteParams {

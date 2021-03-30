@@ -33,14 +33,14 @@ const UserInfo: React.FC<UserInfoTypes> = ({
   loadUserFollowersList,
   loadUserGistList,
 }: UserInfoTypes) => {
-  const { navigate, goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
   const { userData } = routeParams;
 
   const handleBack = useCallback(() => {
     goBack();
-  }, [navigate]);
+  }, [goBack]);
 
   const handleSearchRepos = useCallback((userAccount: UserModel) => {
     try {

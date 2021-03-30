@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     backgroundColor: PaletteColors.$paletteGrey300,
     borderBottomWidth: normalize(3),
     marginTop: normalize(45),
-    paddingStart: normalize(22)
+    paddingStart: normalize(22),
   },
   screenTitle: {
     color: PaletteColors.$paletteGreen500,
@@ -41,7 +41,8 @@ export const styles = StyleSheet.create({
   presentationContainer: {
     marginLeft: normalize(25),
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginRight: normalize(100),
   },
   nameText: {
     fontSize: normalize(20),

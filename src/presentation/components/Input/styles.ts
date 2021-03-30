@@ -31,7 +31,6 @@ export const styles = StyleSheet.create({
     borderBottomStartRadius: normalize(8),
     borderTopEndRadius: normalize(8),
     borderTopStartRadius: normalize(8),
-    marginBottom: normalize(8),
     borderWidth: 1,
     borderColor: PaletteColors.$palettePrimaryMain,
     flexDirection: 'row',

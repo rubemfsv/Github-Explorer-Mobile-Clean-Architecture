@@ -5,7 +5,6 @@ import { TextInput } from "react-native-gesture-handler";
 import FeatherIcon from "react-native-vector-icons/Feather";
 
 import { styles } from "./styles";
-import { PaletteColors } from "../../styles/PalleteColors";
 
 interface IInputProps extends TextInputProps {
   name: string;

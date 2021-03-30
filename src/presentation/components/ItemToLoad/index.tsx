@@ -6,7 +6,7 @@ import { GithubListEnums } from "../../../domain/enums";
 
 type ItemToLoadProps = {
   item: any;
-  type: GithubListEnums;
+  type: string;
 };
 
 const ItemToLoad: React.FC<ItemToLoadProps> = ({

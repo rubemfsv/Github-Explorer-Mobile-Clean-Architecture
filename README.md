@@ -3,7 +3,7 @@
 Project directed to the study of clean architecture applied in a React Native application.
 ## Proposal
 
-Be an application to search for information about users registered on Github, to be able to see their repositories, their gists, their followers and who they are following. You can also view information specific to repositories, gists and other followers.
+It is an application to search for information about users registered on Github, to be able to see their repositories, their gists, their followers and who they are following. You can also view information specific to repositories, gists and other followers.
 
 # :pushpin: Sumary
 

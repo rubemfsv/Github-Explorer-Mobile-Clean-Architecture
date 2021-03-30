@@ -50,7 +50,6 @@ src/
     test/
     usecases/
   infra/
-    cache/
     http/
     test/
   main/

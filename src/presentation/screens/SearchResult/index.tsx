@@ -1,43 +1,27 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { ILoadUserRepositoryToList } from "@/domain/usecases";
 import { RepositoryModel } from "@/domain/models";
 import { FlatList } from "react-native-gesture-handler";
-import RepositoryItem from "./RepositoryItem";
+import { RepositoryItem } from "../../components";
 
-type SearchResultTypes = {
-  loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
-};
+type SearchResultTypes = {};
 
 interface IRouteParams {
-  githubUsername: string;
+  searchResult: RepositoryModel[];
 }
 
-const SearchResult: React.FC<SearchResultTypes> = ({
-  loadUserRepositoryList,
-}: SearchResultTypes) => {
+const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
   const { navigate } = useNavigation();
-  const [searchResult, setSearchResult] = useState<RepositoryModel[]>();
+  // const [searchResult, setSearchResult] = useState<RepositoryModel[]>();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
-  const { githubUsername } = routeParams;
+  const { searchResult } = routeParams;
 
   const handlePress = useCallback(() => {
     navigate("Home");
   }, [navigate]);
-
-  useEffect(() => {
-    try {
-      loadUserRepositoryList(githubUsername)
-        .loadAll()
-        .then((response) => setSearchResult(response))
-        .catch((error) => console.log("errorrhe", error));
-    } catch (error) {
-      console.log("catch", error);
-    }
-  }, []);
 
   return (
     <View style={styles.container}>

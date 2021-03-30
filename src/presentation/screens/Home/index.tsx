@@ -1,26 +1,36 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React, { useCallback, useState } from "react";
+import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { TextInput } from "react-native-gesture-handler";
+import { Button, Input } from "../../../presentation/components";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { ILoadUserInfo } from "@/domain/usecases";
 
-type HomeTypes = {};
+type HomeTypes = {
+  loadUserInfo: (user: string) => ILoadUserInfo;
+};
 
-const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
+const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
   const { navigate } = useNavigation();
   const [searchUser, setSearchUser] = useState<string>();
+  const [searchError, setSearchError] = useState(false);
 
   const handlePress = useCallback(
     (user: string) => {
-      console.log('user',user)
-      navigate("SearchResult", { githubUsername: user });
+      loadUserInfo(user)
+        .load()
+        .then((response) => {
+          navigate("UserInfo", { userData: response });
+          setSearchError(false);
+        })
+        .catch((error) => setSearchError(true));
     },
     [navigate]
   );
 
-  const handleInputChange = (text: string): void => {
+  const getInputValue = useCallback((text: string) => {
     setSearchUser(text);
-  };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -28,22 +38,28 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
         <Text style={styles.screenTitle}>Github Explorer</Text>
       </View>
       <View style={styles.bodyContainer}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(value) => handleInputChange(value)}
-          value={searchUser}
+        <Input
+          icon="user"
           placeholder="Type a valid user"
+          name="Teste"
+          getInputValue={getInputValue}
+          searchError={searchError}
         />
+        {searchError && (
+          <Text style={styles.errorText}>Type a valid user, please</Text>
+        )}
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
+        <Button
           onPress={searchUser ? () => handlePress(searchUser) : undefined}
-          activeOpacity={0.8}
-          style={styles.buttonStyles}
-          disabled={searchUser ? false : true}
+          enabled={searchUser ? true : false}
         >
-          <Text style={styles.buttonText}>Click Here</Text>
-        </TouchableOpacity>
+          <>
+            <FeatherIcon name={"search"} style={styles.searchIcon} />
+            {"  "}
+            <Text>Search</Text>
+          </>
+        </Button>
       </View>
     </View>
   );

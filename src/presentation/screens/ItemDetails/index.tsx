@@ -50,7 +50,8 @@ const ItemDetails: React.FC<ItemDetailsTypes> = ({}: ItemDetailsTypes) => {
         {type === GithubListEnums.REPOSITORY && (
           <View style={styles.descriptionRepositoryContainer}>
             <Text style={styles.descriptionRepositoryText}>
-              {type === GithubListEnums.REPOSITORY && itemData.description}
+              {type === GithubListEnums.REPOSITORY &&
+                (itemData.description || "Repository with no description.")}
             </Text>
           </View>
         )}

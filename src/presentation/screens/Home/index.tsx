@@ -4,17 +4,27 @@ import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { Button, Input } from "../../../presentation/components";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { ILoadUserInfo } from "@/domain/usecases";
 
-type HomeTypes = {};
+type HomeTypes = {
+  loadUserInfo: (user: string) => ILoadUserInfo;
+};
 
-const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
+const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
   const { navigate } = useNavigation();
   const [searchUser, setSearchUser] = useState<string>();
+  const [searchError, setSearchError] = useState(false);
 
   const handlePress = useCallback(
     (user: string) => {
-      console.log("user", user);
-      navigate("SearchResult", { githubUsername: user });
+      loadUserInfo(user)
+        .load()
+        .then((response) => {
+          console.log("deu", response);
+          setSearchError(false)
+        })
+        .catch((error) => setSearchError(true));
+      // navigate("SearchResult", { githubUsername: user });
     },
     [navigate]
   );
@@ -34,6 +44,7 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
           placeholder="Type a valid user"
           name="Teste"
           getInputValue={getInputValue}
+          searchError={searchError}
         />
       </View>
       <View style={styles.buttonContainer}>

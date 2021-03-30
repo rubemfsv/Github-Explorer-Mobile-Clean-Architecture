@@ -20,6 +20,23 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  containerError: {
+    width: Dimensions.get('window').width * 0.7,
+    height: normalize(50),
+    alignSelf: 'center',
+    backgroundColor: PaletteColors.$paletteGrey300,
+    paddingLeft: normalize(16),
+    paddingRight: normalize(16),
+    borderBottomEndRadius: normalize(8),
+    borderBottomStartRadius: normalize(8),
+    borderTopEndRadius: normalize(8),
+    borderTopStartRadius: normalize(8),
+    marginBottom: normalize(8),
+    borderWidth: 2,
+    borderColor: PaletteColors.$paletteErrorRed700,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   containerInactive: {
     width: Dimensions.get('window').width * 0.7,
     height: normalize(50),
@@ -50,5 +67,10 @@ export const styles = StyleSheet.create({
     marginRight: normalize(16),
     fontSize: normalize(20),
     color: PaletteColors.$palettePrimaryMain
+  },
+  iconError: {
+    marginRight: normalize(16),
+    fontSize: normalize(20),
+    color: PaletteColors.$paletteErrorRed700
   },
 });

@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React, { useCallback, useState } from "react";
+import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { Input } from "../../../presentation/components";
+import { Button, Input } from "../../../presentation/components";
+import FeatherIcon from "react-native-vector-icons/Feather";
 
 type HomeTypes = {};
 
@@ -36,14 +37,16 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
+        <Button
           onPress={searchUser ? () => handlePress(searchUser) : undefined}
-          activeOpacity={0.8}
-          style={styles.buttonStyles}
-          disabled={searchUser ? false : true}
+          enabled={searchUser ? true : false}
         >
-          <Text style={styles.buttonText}>Click Here</Text>
-        </TouchableOpacity>
+          <>
+            <FeatherIcon name={"search"} style={styles.searchIcon} />
+            {"  "}
+            <Text>Search</Text>
+          </>
+        </Button>
       </View>
     </View>
   );

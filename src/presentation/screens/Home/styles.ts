@@ -20,26 +20,16 @@ export const styles = StyleSheet.create({
     fontSize: normalize(30),
   },
   bodyContainer: {
-    height: (Dimensions.get('window').height) * 0.76,
+    height: (Dimensions.get('window').height) * 0.75,
     width: Dimensions.get("window").width,
     backgroundColor: PaletteColors.$paletteGrey200,
     justifyContent: 'center',
   },
-  
   buttonContainer: {
     width: Dimensions.get("window").width,
     marginBottom: normalize(2),
   },
-  buttonStyles: {
-    backgroundColor: PaletteColors.$paletteErrorRedA700,
-    alignItems: 'center',
-  },
-  buttonText: {
-    marginTop: normalize(12),
-    color: PaletteColors.$paletteSecondaryLight,
-    textTransform: 'uppercase',
+  searchIcon: {
     fontSize: normalize(20),
-    lineHeight: normalize(40),
-    textAlign: 'center'
   },
 });

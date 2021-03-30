@@ -14,12 +14,11 @@ export const styles = StyleSheet.create({
     borderBottomStartRadius: normalize(10),
     borderTopEndRadius: normalize(10),
     borderTopStartRadius: normalize(10),
-
     alignItems: 'center',
     justifyContent: 'center'
   },
   buttonText: {
-    color:PaletteColors.$paletteGreen400,
+    color: PaletteColors.$paletteGreen400,
     fontSize: normalize(20)
   }
 });

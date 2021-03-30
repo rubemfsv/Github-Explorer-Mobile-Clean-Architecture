@@ -3,6 +3,7 @@ import { TextInputProps } from "react-native";
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { PaletteColors } from "../../../presentation/styles/PalleteColors";
 
 import { styles } from "./styles";
 
@@ -56,7 +57,7 @@ const Input: React.FC<IInputProps> = ({
       <TextInput
         style={styles.textInput}
         ref={inputElementRef}
-        placeholderTextColor="#666360"
+        placeholderTextColor={PaletteColors.$paletteGrey600}
         placeholder={placeholder}
         keyboardAppearance="dark"
         defaultValue={state}

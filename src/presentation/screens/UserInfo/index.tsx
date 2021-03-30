@@ -38,21 +38,25 @@ const UserInfo: React.FC<UserInfoTypes> = ({
   const routeParams = params as IRouteParams;
   const { userData } = routeParams;
 
+  console.log("userData", userData);
+
   const handleBack = useCallback(() => {
     goBack();
   }, [goBack]);
 
   const handleSearchRepos = useCallback((userAccount: UserModel) => {
     try {
-      loadUserRepositoryList(userAccount.login)
-        .loadAll()
-        .then((response) => {
-          navigate("SearchResult", {
-            searchResult: response,
-            type: GithubListEnums.REPOSITORY,
-          });
-        })
-        .catch((error) => console.log("errorrhe", error));
+      if (userAccount.login) {
+        loadUserRepositoryList(userAccount.login)
+          .loadAll()
+          .then((response) => {
+            navigate("SearchResult", {
+              searchResult: response,
+              type: GithubListEnums.REPOSITORY,
+            });
+          })
+          .catch((error) => console.log("errorrhe", error));
+      }
     } catch (error) {
       console.log("catch", error);
     }
@@ -60,15 +64,17 @@ const UserInfo: React.FC<UserInfoTypes> = ({
 
   const handleSearchFollowers = useCallback((userAccount: UserModel) => {
     try {
-      loadUserFollowersList(userAccount.login)
-        .loadAll()
-        .then((response) => {
-          navigate("SearchResult", {
-            searchResult: response,
-            type: GithubListEnums.FOLLOWER,
-          });
-        })
-        .catch((error) => console.log("errorrhe", error));
+      if (userAccount.login) {
+        loadUserFollowersList(userAccount.login)
+          .loadAll()
+          .then((response) => {
+            navigate("SearchResult", {
+              searchResult: response,
+              type: GithubListEnums.FOLLOWER,
+            });
+          })
+          .catch((error) => console.log("errorrhe", error));
+      }
     } catch (error) {
       console.log("catch", error);
     }
@@ -76,15 +82,17 @@ const UserInfo: React.FC<UserInfoTypes> = ({
 
   const handleSearchFollowing = useCallback((userAccount: UserModel) => {
     try {
-      loadUserFollowingList(userAccount.login)
-        .loadAll()
-        .then((response) => {
-          navigate("SearchResult", {
-            searchResult: response,
-            type: GithubListEnums.FOLLOWING,
-          });
-        })
-        .catch((error) => console.log("errorrhe", error));
+      if (userAccount.login) {
+        loadUserFollowingList(userAccount.login)
+          .loadAll()
+          .then((response) => {
+            navigate("SearchResult", {
+              searchResult: response,
+              type: GithubListEnums.FOLLOWING,
+            });
+          })
+          .catch((error) => console.log("errorrhe", error));
+      }
     } catch (error) {
       console.log("catch", error);
     }
@@ -92,15 +100,17 @@ const UserInfo: React.FC<UserInfoTypes> = ({
 
   const handleSearchGists = useCallback((userAccount: UserModel) => {
     try {
-      loadUserGistList(userAccount.login)
-        .loadAll()
-        .then((response) => {
-          navigate("SearchResult", {
-            searchResult: response,
-            type: GithubListEnums.GIST,
-          });
-        })
-        .catch((error) => console.log("errorrhe", error));
+      if (userAccount.login) {
+        loadUserGistList(userAccount.login)
+          .loadAll()
+          .then((response) => {
+            navigate("SearchResult", {
+              searchResult: response,
+              type: GithubListEnums.GIST,
+            });
+          })
+          .catch((error) => console.log("errorrhe", error));
+      }
     } catch (error) {
       console.log("catch", error);
     }

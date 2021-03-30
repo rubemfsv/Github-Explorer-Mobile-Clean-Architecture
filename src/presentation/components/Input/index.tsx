@@ -7,7 +7,6 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import { styles } from "./styles";
 
 interface IInputProps extends TextInputProps {
-  name: string;
   icon: string;
   placeholder?: string;
   getInputValue: (text: string) => void;
@@ -15,7 +14,6 @@ interface IInputProps extends TextInputProps {
 }
 
 const Input: React.FC<IInputProps> = ({
-  name,
   getInputValue,
   placeholder,
   searchError,

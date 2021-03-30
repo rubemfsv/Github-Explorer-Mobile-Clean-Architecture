@@ -41,7 +41,6 @@ const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
         <Input
           icon="user"
           placeholder="Type a valid user"
-          name="Teste"
           getInputValue={getInputValue}
           searchError={searchError}
         />

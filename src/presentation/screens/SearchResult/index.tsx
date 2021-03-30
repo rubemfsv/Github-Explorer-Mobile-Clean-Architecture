@@ -5,18 +5,18 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { RepositoryModel } from "@/domain/models";
 import { FlatList } from "react-native-gesture-handler";
 import { ItemToLoad } from "../../components";
-import { GithubListEnums } from "../../../domain/enums";
+import { variantGithubEndpointTypeRender } from "../../utils";
+import { GithubListEnums } from "@/domain/enums";
 
 type SearchResultTypes = {};
 
 interface IRouteParams {
   searchResult: RepositoryModel[];
-  type: string;
+  type: GithubListEnums;
 }
 
 const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
   const { goBack } = useNavigation();
-  // const [searchResult, setSearchResult] = useState<RepositoryModel[]>();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
   const { searchResult, type } = routeParams;
@@ -30,42 +30,19 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
       <View style={styles.containerHeader}>
         <Text style={styles.screenTitle}>Search Result</Text>
       </View>
-      {type === GithubListEnums.REPOSITORY && (
-        <FlatList
-          style={styles.searchList}
-          data={searchResult}
-          keyExtractor={(repository) => repository.id}
-          ListHeaderComponent={
-            <Text style={styles.listTitle}>Repositories</Text>
-          }
-          renderItem={(repository: any): any => (
-            <ItemToLoad item={repository} type={GithubListEnums.REPOSITORY} />
-          )}
-        />
-      )}
-      {type === GithubListEnums.GIST && (
-        <FlatList
-          style={styles.searchList}
-          data={searchResult}
-          keyExtractor={(gist) => gist.id}
-          ListHeaderComponent={<Text style={styles.listTitle}>Gists</Text>}
-          renderItem={(gist: any): any => (
-            <ItemToLoad item={gist} type={GithubListEnums.GIST} />
-          )}
-        />
-      )}
-      {(type === GithubListEnums.FOLLOWER ||
-        type === GithubListEnums.FOLLOWING) && (
-        <FlatList
-          style={styles.searchList}
-          data={searchResult}
-          keyExtractor={(follower) => follower.id}
-          ListHeaderComponent={<Text style={styles.listTitle}>Followers</Text>}
-          renderItem={(follower: any): any => (
-            <ItemToLoad item={follower} type={GithubListEnums.FOLLOWER} />
-          )}
-        />
-      )}
+      <FlatList
+        style={styles.searchList}
+        data={searchResult}
+        keyExtractor={(repository) => repository.id}
+        ListHeaderComponent={
+          <Text style={styles.listTitle}>
+            {variantGithubEndpointTypeRender[type]}
+          </Text>
+        }
+        renderItem={(repository: any): any => (
+          <ItemToLoad item={repository} type={type} />
+        )}
+      />
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={handlePress}

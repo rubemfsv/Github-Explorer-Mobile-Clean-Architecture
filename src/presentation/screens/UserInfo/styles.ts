@@ -55,6 +55,7 @@ export const styles = StyleSheet.create({
 
   statisticContainer: {
     height: normalize(100),
+    marginTop: normalize(15),
   },
   tabContainer: {
     paddingLeft: normalize(10),

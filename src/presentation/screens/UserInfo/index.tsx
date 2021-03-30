@@ -3,7 +3,6 @@ import { View, Text, Image } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { RectButton, ScrollView } from "react-native-gesture-handler";
-
 import { Button } from "../../../presentation/components";
 import { UserModel } from "../../../domain/models";
 import { GithubListEnums } from "../../../domain/enums";
@@ -12,7 +11,7 @@ import {
   ILoadUserFollowingList,
   ILoadUserGistList,
   ILoadUserRepositoryToList,
-} from "@/domain/usecases";
+} from "../../../domain/usecases";
 
 import { styles } from "./styles";
 

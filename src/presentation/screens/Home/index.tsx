@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from "react";
 import { View, Text } from "react-native";
-import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { Button, Input } from "../../../presentation/components";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { ILoadUserInfo } from "@/domain/usecases";
+import { Button, Input } from "../../../presentation/components";
+import { ILoadUserInfo } from "../../../domain/usecases";
+
+import { styles } from "./styles";
 
 type HomeTypes = {
   loadUserInfo: (user: string) => ILoadUserInfo;

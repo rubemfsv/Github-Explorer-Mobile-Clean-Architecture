@@ -1,15 +1,13 @@
 import React, { useCallback } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { RectButton, ScrollView } from "react-native-gesture-handler";
-
+import { ScrollView } from "react-native-gesture-handler";
+import { GithubListEnums } from "../../../domain/enums";
+import { variantGithubEndpointTypeSingularRender } from "../../utils";
 import { Button } from "../../components";
-import { UserModel } from "../../../domain/models";
 
 import { styles } from "./styles";
-import { variantGithubEndpointTypeSingularRender } from "../../utils";
-import { GithubListEnums } from "../../../domain/enums";
 
 type ItemDetailsTypes = {};
 

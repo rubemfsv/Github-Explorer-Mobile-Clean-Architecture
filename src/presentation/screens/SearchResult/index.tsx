@@ -2,13 +2,14 @@ import React, { useCallback } from "react";
 import { View, Text } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { RepositoryModel } from "@/domain/models";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
+import { RepositoryModel } from "../../../domain/models";
 import { Button, ItemToLoad } from "../../components";
 import { variantGithubEndpointTypeRender } from "../../utils";
-import { GithubListEnums } from "@/domain/enums";
+import { GithubListEnums } from "../../../domain/enums";
+import { ILoadUserInfo } from "../../../domain/usecases";
+
 import { styles } from "./styles";
-import { ILoadUserInfo } from "@/domain/usecases";
 
 type SearchResultTypes = {
   loadUserInfo: (user: string) => ILoadUserInfo;

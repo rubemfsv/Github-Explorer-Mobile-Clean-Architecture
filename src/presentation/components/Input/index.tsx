@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TextInputProps } from "react-native";
-import { View } from "react-native";
+import { TextInputProps, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { PaletteColors } from "../../../presentation/styles/PalleteColors";

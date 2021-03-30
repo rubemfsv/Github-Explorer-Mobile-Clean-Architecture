@@ -4,52 +4,44 @@ import { PaletteColors } from "../../styles/PalleteColors";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: PaletteColors.$paletteErrorRed300,
-    flex: normalize(1)
+    backgroundColor: PaletteColors.$paletteGrey300,
+    flex: 1
   },
   containerHeader: {
     alignItems: 'center',
     paddingBottom: normalize(20),
     width: Dimensions.get("window").width,
-    backgroundColor: PaletteColors.$paletteErrorRed300,
+    backgroundColor: PaletteColors.$paletteGrey300,
     borderBottomWidth: normalize(3),
     marginTop: normalize(45),
     paddingStart: normalize(22)
   },
   screenTitle: {
-    color: PaletteColors.$palettePrimaryDark,
+    color: PaletteColors.$paletteGreen500,
     fontSize: normalize(30),
   },
+  flatListBottom: {
+    paddingBottom: normalize(20),
+  },
   searchList: {
-    backgroundColor: PaletteColors.$paletteErrorRed200,
+    backgroundColor: PaletteColors.$paletteGrey200,
     paddingLeft: normalize(32),
     paddingRight: normalize(32),
     paddingTop: normalize(24),
-    paddingBottom: normalize(16)
+    paddingBottom: normalize(16),
   },
   listTitle: {
     fontSize: normalize(24),
     marginBottom: normalize(24),
-    color: PaletteColors.$palettePrimaryDark
+    color: PaletteColors.$paletteGreen500
   },
   listText: {
     color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(20),
   },
   buttonContainer: {
-    width: Dimensions.get("window").width,
-    marginBottom: normalize(2),
   },
-  buttonStyles: {
-    backgroundColor: PaletteColors.$paletteErrorRedA700,
-    alignItems: 'center',
-  },
-  buttonText: {
-    marginTop: normalize(12),
-    color: PaletteColors.$paletteSecondaryLight,
-    textTransform: 'uppercase',
+  backIcon: {
     fontSize: normalize(20),
-    lineHeight: normalize(40),
-    textAlign: 'center'
   },
 });

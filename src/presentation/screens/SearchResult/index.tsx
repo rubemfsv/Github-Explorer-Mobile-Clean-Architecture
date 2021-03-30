@@ -1,12 +1,14 @@
 import React, { useCallback } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { styles } from "./styles";
+import { View, Text } from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { RepositoryModel } from "@/domain/models";
-import { FlatList } from "react-native-gesture-handler";
-import { ItemToLoad } from "../../components";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { Button, ItemToLoad } from "../../components";
 import { variantGithubEndpointTypeRender } from "../../utils";
 import { GithubListEnums } from "@/domain/enums";
+import { styles } from "./styles";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type SearchResultTypes = {};
 
@@ -21,38 +23,41 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
   const routeParams = params as IRouteParams;
   const { searchResult, type } = routeParams;
 
-  const handlePress = useCallback(() => {
+  const handleBack = useCallback(() => {
     goBack();
   }, [goBack]);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.containerHeader}>
-        <Text style={styles.screenTitle}>
-          {variantGithubEndpointTypeRender[type]}
-        </Text>
+    <>
+      <View style={styles.container}>
+        <View style={styles.containerHeader}>
+          <Text style={styles.screenTitle}>
+            {variantGithubEndpointTypeRender[type]}
+          </Text>
+        </View>
+        <FlatList
+          style={styles.searchList}
+          data={searchResult}
+          keyExtractor={(item) => item.id}
+          ListHeaderComponent={
+            <Text style={styles.listTitle}>Search Result</Text>
+          }
+          contentContainerStyle={styles.flatListBottom}
+          renderItem={(item: any): any => (
+            <ItemToLoad item={item} type={type} />
+          )}
+        />
       </View>
-      <FlatList
-        style={styles.searchList}
-        data={searchResult}
-        keyExtractor={(repository) => repository.id}
-        ListHeaderComponent={
-          <Text style={styles.listTitle}>Search Result</Text>
-        }
-        renderItem={(repository: any): any => (
-          <ItemToLoad item={repository} type={type} />
-        )}
-      />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={handlePress}
-          activeOpacity={0.8}
-          style={styles.buttonStyles}
-        >
-          <Text style={styles.buttonText}>Back Home</Text>
-        </TouchableOpacity>
+        <Button onPress={handleBack}>
+          <>
+            <FeatherIcon name={"arrow-left"} style={styles.backIcon} />
+            {"  "}
+            <Text>Back</Text>
+          </>
+        </Button>
       </View>
-    </View>
+    </>
   );
 };
 

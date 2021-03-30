@@ -1,29 +1,47 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { View, Text, Image } from "react-native";
-import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { Button } from "../../../presentation/components";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { UserModel } from "@/domain/models";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { RectButton, ScrollView } from "react-native-gesture-handler";
 
-type HomeTypes = {};
+import { Button } from "../../../presentation/components";
+import { UserModel } from "../../../domain/models";
+
+import { styles } from "./styles";
+import { ILoadUserRepositoryToList } from "@/domain/usecases";
+
+type UserInfoTypes = {
+  loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
+};
 
 interface IRouteParams {
   userData: UserModel;
 }
 
-const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
-  const { navigate } = useNavigation();
+const UserInfo: React.FC<UserInfoTypes> = ({
+  loadUserRepositoryList,
+}: UserInfoTypes) => {
+  const { navigate, goBack } = useNavigation();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
   const { userData } = routeParams;
 
-  console.log("userData", userData);
-
-  const handlePress = useCallback(() => {
-    navigate("Home");
+  const handleBack = useCallback(() => {
+    goBack();
   }, [navigate]);
+
+  const handleSearchPublicRepos = useCallback((userAccount: UserModel) => {
+    try {
+      loadUserRepositoryList(userAccount.login)
+        .loadAll()
+        .then((response) => {
+          navigate("SearchResult", { searchResult: response });
+        })
+        .catch((error) => console.log("errorrhe", error));
+    } catch (error) {
+      console.log("catch", error);
+    }
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -47,27 +65,30 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.tabContainer}
           >
-            <View style={styles.tabItem}>
+            <RectButton
+              style={styles.tabItem}
+              onPress={() => handleSearchPublicRepos(userData)}
+            >
               <Text style={styles.tabTitle}>Public Repos</Text>
               <Text style={styles.tabNumber}>{userData.public_repos}</Text>
-            </View>
-            <View style={styles.tabItem}>
+            </RectButton>
+            <RectButton style={styles.tabItem}>
               <Text style={styles.tabTitle}>Public Gists</Text>
               <Text style={styles.tabNumber}>{userData.public_gists}</Text>
-            </View>
-            <View style={styles.tabItem}>
+            </RectButton>
+            <RectButton style={styles.tabItem}>
               <Text style={styles.tabTitle}>Followers</Text>
               <Text style={styles.tabNumber}>{userData.followers}</Text>
-            </View>
-            <View style={styles.tabItem}>
+            </RectButton>
+            <RectButton style={styles.tabItem}>
               <Text style={styles.tabTitle}>Following</Text>
               <Text style={styles.tabNumber}>{userData.following}</Text>
-            </View>
+            </RectButton>
           </ScrollView>
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <Button onPress={handlePress}>
+        <Button onPress={handleBack}>
           <>
             <FeatherIcon name={"arrow-left"} style={styles.backIcon} />
             {"  "}
@@ -79,4 +100,4 @@ const Home: React.FC<HomeTypes> = ({}: HomeTypes) => {
   );
 };
 
-export default Home;
+export default UserInfo;

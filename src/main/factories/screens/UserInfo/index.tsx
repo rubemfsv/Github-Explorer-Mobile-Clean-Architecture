@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { UserInfo } from "../../../../presentation/screens";
+import { makeLoadUserRepositoryList } from "../../usecases";
 
 const makeUserInfo: React.FC = () => {
-  return <UserInfo />;
+  const loadUserRepositoryList = useCallback((user: string) => {
+    return makeLoadUserRepositoryList(user);
+  }, []);
+
+  return <UserInfo loadUserRepositoryList={loadUserRepositoryList} />;
 };
 
 export default makeUserInfo;

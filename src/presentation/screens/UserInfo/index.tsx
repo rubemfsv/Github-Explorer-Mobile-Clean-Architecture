@@ -51,6 +51,32 @@ const UserInfo: React.FC<UserInfoTypes> = ({
     }
   }, []);
 
+  const handleSearchFollowers = useCallback((userAccount: UserModel) => {
+    try {
+      loadUserFollowersList(userAccount.login)
+        .loadAll()
+        .then((response) => {
+          navigate("SearchResult", { searchResult: response });
+        })
+        .catch((error) => console.log("errorrhe", error));
+    } catch (error) {
+      console.log("catch", error);
+    }
+  }, []);
+
+  const handleSearchFollowing = useCallback((userAccount: UserModel) => {
+    try {
+      loadUserFollowingList(userAccount.login)
+        .loadAll()
+        .then((response) => {
+          navigate("SearchResult", { searchResult: response });
+        })
+        .catch((error) => console.log("errorrhe", error));
+    } catch (error) {
+      console.log("catch", error);
+    }
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>

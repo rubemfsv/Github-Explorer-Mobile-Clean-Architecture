@@ -55,7 +55,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
               type: GithubListEnums.REPOSITORY,
             });
           })
-          .catch((error) => console.log("errorrhe", error));
+          .catch((error) => console.log("error loading repositories:", error));
       }
     } catch (error) {
       console.log("catch", error);
@@ -73,7 +73,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
               type: GithubListEnums.FOLLOWER,
             });
           })
-          .catch((error) => console.log("errorrhe", error));
+          .catch((error) => console.log("error loading followers:", error));
       }
     } catch (error) {
       console.log("catch", error);
@@ -91,7 +91,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
               type: GithubListEnums.FOLLOWING,
             });
           })
-          .catch((error) => console.log("errorrhe", error));
+          .catch((error) => console.log("error loading following:", error));
       }
     } catch (error) {
       console.log("catch", error);
@@ -109,7 +109,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
               type: GithubListEnums.GIST,
             });
           })
-          .catch((error) => console.log("errorrhe", error));
+          .catch((error) => console.log("error loading gists:", error));
       }
     } catch (error) {
       console.log("catch", error);
@@ -128,7 +128,9 @@ const UserInfo: React.FC<UserInfoTypes> = ({
             source={{ uri: userData.avatar_url }}
           />
           <View style={styles.presentationContainer}>
-            <Text style={styles.nameText}>{userData.name}</Text>
+            <Text style={styles.nameText}>
+              {userData.name || `@${userData.login}`}
+            </Text>
             <Text style={styles.companyText}>{userData.company}</Text>
           </View>
         </View>

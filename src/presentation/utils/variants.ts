@@ -4,3 +4,8 @@ export const variantGithubEndpointTypeRender = {
   follower: 'Followers',
   following: 'Following'
 }
+
+export const variantGithubEndpointTypeSingularRender = {
+  repository: 'Repository',
+  gist: 'Gist',
+}

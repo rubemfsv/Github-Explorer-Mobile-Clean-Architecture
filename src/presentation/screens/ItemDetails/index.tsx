@@ -2,26 +2,30 @@ import React, { useCallback } from "react";
 import { View, Text, Image } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FeatherIcon from "react-native-vector-icons/Feather";
-import { ScrollView } from "react-native-gesture-handler";
+import { RectButton, ScrollView } from "react-native-gesture-handler";
 
 import { Button } from "../../components";
 import { UserModel } from "../../../domain/models";
 
 import { styles } from "./styles";
+import { variantGithubEndpointTypeSingularRender } from "../../utils";
+import { GithubListEnums } from "../../../domain/enums";
 
 type ItemDetailsTypes = {};
 
 interface IRouteParams {
-  userData: UserModel;
+  itemData: any;
+  type: GithubListEnums;
 }
 
 const ItemDetails: React.FC<ItemDetailsTypes> = ({}: ItemDetailsTypes) => {
   const { goBack, navigate } = useNavigation();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
-  const { userData } = routeParams;
+  const { itemData, type } = routeParams;
 
-  console.log("userData", userData);
+  console.log("itemData", itemData);
+  console.log("type", type);
 
   const handleBack = useCallback(() => {
     goBack();
@@ -30,22 +34,68 @@ const ItemDetails: React.FC<ItemDetailsTypes> = ({}: ItemDetailsTypes) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>
-        <Text style={styles.screenTitle}>Github Explorer</Text>
+        <Text style={styles.screenTitle}>
+          {(type === GithubListEnums.GIST ||
+            type === GithubListEnums.REPOSITORY) &&
+            variantGithubEndpointTypeSingularRender[type]}{" "}
+          Details
+        </Text>
       </View>
       <View style={styles.bodyContainer}>
-        <View style={styles.avatarAndPresentationContainer}>
-          <Image
-            style={styles.avatarImage}
-            source={{ uri: userData.avatar_url }}
-          />
-          <View style={styles.presentationContainer}>
-            <Text style={styles.nameText}>
-              {userData.name || `@${userData.login}`}
-            </Text>
-            <Text style={styles.companyText}>{userData.company}</Text>
-          </View>
+        <View style={styles.presentationContainer}>
+          <Text style={styles.nameText}>
+            {type === GithubListEnums.GIST && itemData.description}
+            {type === GithubListEnums.REPOSITORY && itemData.name}
+          </Text>
+          <Text style={styles.companyText}>Owner: @{itemData.owner.login}</Text>
         </View>
-        <View style={styles.statisticContainer}></View>
+        {type === GithubListEnums.REPOSITORY && (
+          <View style={styles.descriptionRepositoryContainer}>
+            <Text style={styles.descriptionRepositoryText}>
+              {type === GithubListEnums.REPOSITORY && itemData.description}
+            </Text>
+          </View>
+        )}
+        <View style={styles.statisticContainer}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.tabContainer}
+          >
+            {type === GithubListEnums.GIST && (
+              <View style={styles.tabItem}>
+                <Text style={styles.tabTitle}>Comments</Text>
+                <Text style={styles.tabNumber}>{itemData.comments}</Text>
+              </View>
+            )}
+            {type === GithubListEnums.REPOSITORY && (
+              <>
+                <View style={styles.tabItem}>
+                  <Text style={styles.tabTitle}>Stars</Text>
+                  <Text style={styles.tabNumber}>
+                    {itemData.stargazers_count}
+                  </Text>
+                </View>
+                <View style={styles.tabItem}>
+                  <Text style={styles.tabTitle}>Watchers</Text>
+                  <Text style={styles.tabNumber}>
+                    {itemData.watchers_count}
+                  </Text>
+                </View>
+                <View style={styles.tabItem}>
+                  <Text style={styles.tabTitle}>Forks</Text>
+                  <Text style={styles.tabNumber}>{itemData.forks_count}</Text>
+                </View>
+                <View style={styles.tabItem}>
+                  <Text style={styles.tabTitle}>Open Issues</Text>
+                  <Text style={styles.tabNumber}>
+                    {itemData.open_issues_count}
+                  </Text>
+                </View>
+              </>
+            )}
+          </ScrollView>
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <Button onPress={handleBack}>

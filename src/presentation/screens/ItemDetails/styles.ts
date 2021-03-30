@@ -24,27 +24,16 @@ export const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     backgroundColor: PaletteColors.$paletteGrey200,
   },
-  avatarAndPresentationContainer: {
+  presentationContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: normalize(25),
     marginBottom: normalize(25),
     marginLeft: normalize(30),
-    flexDirection: 'row',
-  },
-  avatarImage: {
-    width: normalize(95),
-    height: normalize(95),
-    borderTopRightRadius: normalize(98),
-    borderTopLeftRadius: normalize(98),
-    borderBottomRightRadius: normalize(98),
-    borderBottomLeftRadius: normalize(98),
-  },
-  presentationContainer: {
-    marginLeft: normalize(25),
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   nameText: {
     fontSize: normalize(20),
+    fontWeight: 'bold',
     color: PaletteColors.$paletteSecondaryLight,
   },
   companyText: {
@@ -52,9 +41,19 @@ export const styles = StyleSheet.create({
     marginTop: normalize(7),
     color: PaletteColors.$paletteGreen500,
   },
-
+  descriptionRepositoryContainer: {
+    paddingLeft: normalize(20),
+    paddingRight: normalize(20),
+    marginTop: normalize(10),
+    marginBottom: normalize(35)
+  },
+  descriptionRepositoryText: {
+    fontSize: normalize(16),
+    color: PaletteColors.$paletteSecondaryLight,
+  },
   statisticContainer: {
     height: normalize(100),
+    marginTop: normalize(15),
   },
   tabContainer: {
     paddingLeft: normalize(10),

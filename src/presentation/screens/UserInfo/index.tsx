@@ -37,8 +37,6 @@ const UserInfo: React.FC<UserInfoTypes> = ({
   const routeParams = params as IRouteParams;
   const { userData } = routeParams;
 
-  console.log("userData", userData);
-
   const handleBack = useCallback(() => {
     goBack();
   }, [goBack]);

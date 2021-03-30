@@ -14,15 +14,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
-
   recButtonContainer: {
     backgroundColor: PaletteColors.$paletteSecondaryGrey,
     width: '100%',
     padding: normalize(20),
   },
-
   recButtonText: {
     color: PaletteColors.$paletteSecondaryLight,
     fontSize: normalize(18)
-  }
+  },
 });

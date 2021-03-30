@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 import { GithubListEnums } from "../../../domain/enums";
+
+import { styles } from "./styles";
 
 type ItemToLoadProps = {
   item: any;

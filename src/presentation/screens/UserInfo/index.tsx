@@ -6,18 +6,21 @@ import { RectButton, ScrollView } from "react-native-gesture-handler";
 
 import { Button } from "../../../presentation/components";
 import { UserModel } from "../../../domain/models";
-
-import { styles } from "./styles";
+import { GithubListEnums } from "../../../domain/enums";
 import {
   ILoadUserFollowersList,
   ILoadUserFollowingList,
+  ILoadUserGistList,
   ILoadUserRepositoryToList,
 } from "@/domain/usecases";
+
+import { styles } from "./styles";
 
 type UserInfoTypes = {
   loadUserRepositoryList: (user: string) => ILoadUserRepositoryToList;
   loadUserFollowingList: (user: string) => ILoadUserFollowingList;
   loadUserFollowersList: (user: string) => ILoadUserFollowersList;
+  loadUserGistList: (user: string) => ILoadUserGistList;
 };
 
 interface IRouteParams {
@@ -28,6 +31,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
   loadUserRepositoryList,
   loadUserFollowingList,
   loadUserFollowersList,
+  loadUserGistList,
 }: UserInfoTypes) => {
   const { navigate, goBack } = useNavigation();
   const { params } = useRoute();
@@ -38,12 +42,15 @@ const UserInfo: React.FC<UserInfoTypes> = ({
     goBack();
   }, [navigate]);
 
-  const handleSearchPublicRepos = useCallback((userAccount: UserModel) => {
+  const handleSearchRepos = useCallback((userAccount: UserModel) => {
     try {
       loadUserRepositoryList(userAccount.login)
         .loadAll()
         .then((response) => {
-          navigate("SearchResult", { searchResult: response });
+          navigate("SearchResult", {
+            searchResult: response,
+            type: GithubListEnums.REPOSITORY,
+          });
         })
         .catch((error) => console.log("errorrhe", error));
     } catch (error) {
@@ -56,7 +63,10 @@ const UserInfo: React.FC<UserInfoTypes> = ({
       loadUserFollowersList(userAccount.login)
         .loadAll()
         .then((response) => {
-          navigate("SearchResult", { searchResult: response });
+          navigate("SearchResult", {
+            searchResult: response,
+            type: GithubListEnums.FOLLOWER,
+          });
         })
         .catch((error) => console.log("errorrhe", error));
     } catch (error) {
@@ -69,7 +79,26 @@ const UserInfo: React.FC<UserInfoTypes> = ({
       loadUserFollowingList(userAccount.login)
         .loadAll()
         .then((response) => {
-          navigate("SearchResult", { searchResult: response });
+          navigate("SearchResult", {
+            searchResult: response,
+            type: GithubListEnums.FOLLOWING,
+          });
+        })
+        .catch((error) => console.log("errorrhe", error));
+    } catch (error) {
+      console.log("catch", error);
+    }
+  }, []);
+
+  const handleSearchGists = useCallback((userAccount: UserModel) => {
+    try {
+      loadUserGistList(userAccount.login)
+        .loadAll()
+        .then((response) => {
+          navigate("SearchResult", {
+            searchResult: response,
+            type: GithubListEnums.GIST,
+          });
         })
         .catch((error) => console.log("errorrhe", error));
     } catch (error) {
@@ -101,20 +130,29 @@ const UserInfo: React.FC<UserInfoTypes> = ({
           >
             <RectButton
               style={styles.tabItem}
-              onPress={() => handleSearchPublicRepos(userData)}
+              onPress={() => handleSearchRepos(userData)}
             >
               <Text style={styles.tabTitle}>Public Repos</Text>
               <Text style={styles.tabNumber}>{userData.public_repos}</Text>
             </RectButton>
-            <RectButton style={styles.tabItem}>
+            <RectButton
+              style={styles.tabItem}
+              onPress={() => handleSearchGists(userData)}
+            >
               <Text style={styles.tabTitle}>Public Gists</Text>
               <Text style={styles.tabNumber}>{userData.public_gists}</Text>
             </RectButton>
-            <RectButton style={styles.tabItem}>
+            <RectButton
+              style={styles.tabItem}
+              onPress={() => handleSearchFollowers(userData)}
+            >
               <Text style={styles.tabTitle}>Followers</Text>
               <Text style={styles.tabNumber}>{userData.followers}</Text>
             </RectButton>
-            <RectButton style={styles.tabItem}>
+            <RectButton
+              style={styles.tabItem}
+              onPress={() => handleSearchFollowing(userData)}
+            >
               <Text style={styles.tabTitle}>Following</Text>
               <Text style={styles.tabNumber}>{userData.following}</Text>
             </RectButton>

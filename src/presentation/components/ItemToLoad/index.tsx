@@ -59,7 +59,9 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
           <Text style={styles.recButtonText}>{item.item.name}</Text>
         )}
         {type === GithubListEnums.GIST && (
-          <Text style={styles.recButtonText}>{item.item.description}</Text>
+          <Text style={styles.recButtonText}>
+            {item.item.description || "Gist with no description"}
+          </Text>
         )}
         {(type === GithubListEnums.FOLLOWER ||
           type === GithubListEnums.FOLLOWING) && (

@@ -19,13 +19,10 @@ interface IRouteParams {
 }
 
 const ItemDetails: React.FC<ItemDetailsTypes> = ({}: ItemDetailsTypes) => {
-  const { goBack, navigate } = useNavigation();
+  const { goBack } = useNavigation();
   const { params } = useRoute();
   const routeParams = params as IRouteParams;
   const { itemData, type } = routeParams;
-
-  console.log("itemData", itemData);
-  console.log("type", type);
 
   const handleBack = useCallback(() => {
     goBack();
@@ -44,7 +41,8 @@ const ItemDetails: React.FC<ItemDetailsTypes> = ({}: ItemDetailsTypes) => {
       <View style={styles.bodyContainer}>
         <View style={styles.presentationContainer}>
           <Text style={styles.nameText}>
-            {type === GithubListEnums.GIST && itemData.description}
+            {type === GithubListEnums.GIST &&
+              (itemData.description || "Gist with no description")}
             {type === GithubListEnums.REPOSITORY && itemData.name}
           </Text>
           <Text style={styles.companyText}>Owner: @{itemData.owner.login}</Text>

@@ -54,6 +54,18 @@ const SearchResult: React.FC<SearchResultTypes> = ({}: SearchResultTypes) => {
           )}
         />
       )}
+      {(type === GithubListEnums.FOLLOWER ||
+        type === GithubListEnums.FOLLOWING) && (
+        <FlatList
+          style={styles.searchList}
+          data={searchResult}
+          keyExtractor={(follower) => follower.id}
+          ListHeaderComponent={<Text style={styles.listTitle}>Followers</Text>}
+          renderItem={(follower: any): any => (
+            <ItemToLoad item={follower} type={GithubListEnums.FOLLOWER} />
+          )}
+        />
+      )}
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={handlePress}

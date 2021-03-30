@@ -13,6 +13,7 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
   item,
   type,
 }: ItemToLoadProps) => {
+  console.log(item);
   return (
     <View style={styles.repositoryContainer}>
       <RectButton onPress={() => {}} style={styles.recButtonContainer}>
@@ -21,6 +22,10 @@ const ItemToLoad: React.FC<ItemToLoadProps> = ({
         )}
         {type === GithubListEnums.GIST && (
           <Text style={styles.recButtonText}>{item.item.description}</Text>
+        )}
+        {(type === GithubListEnums.FOLLOWER ||
+          type === GithubListEnums.FOLLOWING) && (
+          <Text style={styles.recButtonText}>{item.item.login}</Text>
         )}
       </RectButton>
     </View>

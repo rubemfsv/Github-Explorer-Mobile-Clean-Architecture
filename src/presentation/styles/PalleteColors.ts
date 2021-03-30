@@ -20,6 +20,7 @@ export class PaletteColors {
   static $paletteGrey200 = "#4b4b4b";
   static $paletteGrey300 = "#2b2826";
   static $paletteGrey500 = "#232129";
+  static $paletteGrey600 = "#666360";
 
   static $paletteGreen100 = "#66ffbd";
   static $paletteGreen200 = "#00fa9a";

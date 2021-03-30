@@ -1,23 +1,49 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
 import { GithubListEnums } from "../../../domain/enums";
 
 import { styles } from "./styles";
+import { ILoadUserInfo } from "@/domain/usecases";
 
 type ItemToLoadProps = {
   item: any;
   type: string;
+  loadUserInfo: (user: string) => ILoadUserInfo;
 };
 
 const ItemToLoad: React.FC<ItemToLoadProps> = ({
   item,
   type,
+  loadUserInfo,
 }: ItemToLoadProps) => {
-  console.log(item);
+  const { navigate } = useNavigation();
+
+  const handlePress = useCallback(
+    (itemToNavigate: any, type: string) => {
+      if (
+        type === GithubListEnums.FOLLOWER ||
+        type === GithubListEnums.FOLLOWER
+      ) {
+        const user: string = itemToNavigate.item.login
+        loadUserInfo(user)
+          .load()
+          .then((response) => {
+            navigate("UserInfo", { userData: response });
+          })
+          .catch((error) => console.log(error));
+      }
+    },
+    [navigate]
+  );
+
   return (
     <View style={styles.repositoryContainer}>
-      <RectButton onPress={() => {}} style={styles.recButtonContainer}>
+      <RectButton
+        onPress={() => handlePress(item, type)}
+        style={styles.recButtonContainer}
+      >
         {type === GithubListEnums.REPOSITORY && (
           <Text style={styles.recButtonText}>{item.item.name}</Text>
         )}

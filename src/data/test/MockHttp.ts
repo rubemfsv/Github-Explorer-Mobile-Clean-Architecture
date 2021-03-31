@@ -20,8 +20,8 @@ export class HttpClientSpy<R = any> implements IHttpClient<R> {
   body?: any;
   headers?: any;
   response: HttpResponse<R> = {
-    statusCode: HttpStatusCode.ok,
-  };
+    statusCode: HttpStatusCode.ok
+  }
 
   async request(data: HttpRequest): Promise<HttpResponse<R>> {
     this.url = data.url;

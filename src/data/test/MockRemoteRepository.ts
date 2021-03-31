@@ -116,7 +116,6 @@ export const mockRemoteRepository = (): RemoteLoadUserRepositoryList.Model => ({
   open_issues: faker.random.number(),
   watchers: faker.random.number(),
   default_branch: faker.random.word(),
-
 })
 
 export const mockRemoteRepositoryListModel = (): RemoteLoadUserRepositoryList.Model[] => ([

@@ -1,2 +1,2 @@
 export * from './MockHttp';
-export * from './MockRemoteUserFollowers';
+export * from './MockRemoteUser';

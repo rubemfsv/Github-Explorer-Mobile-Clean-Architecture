@@ -1,5 +1,5 @@
 import { RemoteLoadUserFollowingList } from './RemoteLoadUserFollowingList'
-import { HttpClientSpy, mockRemoteUserFollowerListModel } from '../../../test'
+import { HttpClientSpy, mockRemoteUserListModel } from '../../../test'
 import { HttpStatusCode } from '../../../protocols/http'
 import { UnexpectedError } from '../../../../domain/errors'
 
@@ -22,7 +22,7 @@ const makeSut = (url = faker.internet.url()): SutTypes => {
 describe('RemoteLoadUserFollowingList', () => {
   test('Should return a list of SurveyModels if HttpClient returns 200', async () => {
     const { sut, httpClientSpy } = makeSut()
-    const httpResult = mockRemoteUserFollowerListModel()
+    const httpResult = mockRemoteUserListModel()
     httpClientSpy.response = {
       statusCode: HttpStatusCode.ok,
       body: httpResult

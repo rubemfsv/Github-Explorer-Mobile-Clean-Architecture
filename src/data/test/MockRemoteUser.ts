@@ -1,8 +1,8 @@
-import { RemoteLoadUserFollowersList } from '../../data/usecases'
+import { RemoteLoadUserFollowersList } from '../usecases'
 
 import faker from 'faker'
 
-export const mockRemoteUserFollower = (): RemoteLoadUserFollowersList.Model => ({
+export const mockRemoteUser = (): RemoteLoadUserFollowersList.Model => ({
   id: faker.random.number(),
   login: faker.random.word(),
   node_id: faker.random.uuid(),
@@ -38,8 +38,8 @@ export const mockRemoteUserFollower = (): RemoteLoadUserFollowersList.Model => (
   pushed_at: faker.date.recent().toISOString(),
 })
 
-export const mockRemoteUserFollowerListModel = (): RemoteLoadUserFollowersList.Model[] => ([
-  mockRemoteUserFollower(),
-  mockRemoteUserFollower(),
-  mockRemoteUserFollower()
+export const mockRemoteUserListModel = (): RemoteLoadUserFollowersList.Model[] => ([
+  mockRemoteUser(),
+  mockRemoteUser(),
+  mockRemoteUser()
 ])

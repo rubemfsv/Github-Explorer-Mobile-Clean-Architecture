@@ -8,7 +8,7 @@ const makeSut = (field: string, isFieldValid: boolean): InvalidFieldValidation =
   new InvalidFieldValidation(field, isFieldValid)
 
 describe('InvalidFieldValidation', () => {
-  test('Should return error if field is invalid', () => {
+  test('Should return error if isFieldValid is false', () => {
     const field = 'any_field'
     const isFieldValid: any = false
     const sut = makeSut(field, isFieldValid)
@@ -21,9 +21,9 @@ describe('InvalidFieldValidation', () => {
     expect(error).toEqual(new InvalidUserError())
   })
 
-  test('Should return falsy if compare is valid', () => {
+  test('Should return truth if isFieldValid is true', () => {
     const field = 'any_field'
-    const isFieldValid: any = false
+    const isFieldValid: any = true
     const value = faker.random.boolean()
     const sut = makeSut(field, isFieldValid)
 
@@ -32,6 +32,6 @@ describe('InvalidFieldValidation', () => {
       [isFieldValid]: value
     })
 
-    expect(error).toBeFalsy()
+    expect(error).toBeTruthy()
   })
 })

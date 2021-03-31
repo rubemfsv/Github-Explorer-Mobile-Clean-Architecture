@@ -4,11 +4,10 @@ import { InvalidUserError } from '../../errors'
 export class InvalidFieldValidation implements IFieldValidation {
   constructor(
     readonly field: string,
-    private readonly fieldToCompare: string
+    private readonly isFieldValid: boolean
   ) { }
 
   validate(input: object): Error {
-    return new InvalidUserError()
-    // input[this.field] !== input[this.fieldToCompare] ? new InvalidUserError() : null
+    return input[this.isFieldValid] ? null : new InvalidUserError()
   }
 }

@@ -1,4 +1,4 @@
-import { ILoadUserFollowersList, LoadUserFollowersList } from '@/domain/usecases'
+import { ILoadUserFollowersList, LoadUserFollowersList } from '../usecases'
 
 import faker from 'faker'
 

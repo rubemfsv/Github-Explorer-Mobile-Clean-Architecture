@@ -1,4 +1,4 @@
-import { ILoadUserRepositoryToList, LoadUserRepositoryToList } from '@/domain/usecases'
+import { ILoadUserRepositoryToList, LoadUserRepositoryToList } from '../usecases'
 
 import faker from 'faker'
 

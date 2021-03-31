@@ -1,4 +1,4 @@
-import { ILoadUserGistList, LoadUserGistList } from '@/domain/usecases'
+import { ILoadUserGistList, LoadUserGistList } from '../usecases'
 
 import faker from 'faker'
 

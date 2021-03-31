@@ -7,8 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --passWithNoTests --no-cache --runInBand",
-    "test:watch": "yarn test -- --watch",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "test:watch": "yarn test -- --watch"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",

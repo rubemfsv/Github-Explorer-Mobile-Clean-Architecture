@@ -6,23 +6,27 @@ import { ILoadUserGistList } from '../../../../domain/usecases';
 export class RemoteLoadUserGistList implements ILoadUserGistList {
   constructor(
     private readonly url: string,
-    private readonly httpGetClient: IHttpClient<GistModel[]>
+    private readonly httpGetClient: IHttpClient<RemoteLoadUserGistList.Model[]>
   ) { }
 
-  async loadAll(): Promise<GistModel[]> {
+  async loadAll(): Promise<RemoteLoadUserGistList.Model[]> {
     const httpResponse = await this.httpGetClient.request({
       url: this.url,
       method: 'get',
     });
-    const remoteGistToLoad = httpResponse.body;
+    const remoteGistToLoad = httpResponse.body || [];
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         return remoteGistToLoad;
       case HttpStatusCode.noContent:
-        return httpResponse.body || null;
+        return [];
       default:
         throw new UnexpectedError();
     }
   }
+}
+
+export namespace RemoteLoadUserGistList {
+  export type Model = GistModel
 }

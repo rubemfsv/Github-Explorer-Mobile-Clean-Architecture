@@ -1,5 +1,9 @@
 import { RepositoryModel } from 'domain/models/';
 
 export interface ILoadUserRepositoryToList {
-  loadAll: () => Promise<RepositoryModel[]>;
+  loadAll: () => Promise<LoadUserRepositoryToList.Model[]>;
+}
+
+export namespace LoadUserRepositoryToList {
+  export type Model = RepositoryModel
 }

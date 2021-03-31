@@ -1,5 +1,9 @@
 import { GistModel } from 'domain/models/';
 
 export interface ILoadUserGistList {
-  loadAll: () => Promise<GistModel[]>;
+  loadAll: () => Promise<LoadUserGistList.Model[]>;
+}
+
+export namespace LoadUserGistList {
+  export type Model = GistModel
 }

@@ -7,7 +7,6 @@ It is an application to search for information about users registered on Github,
 
 # :pushpin: Sumary
 
-- :pushpin: [Start](#:pushpin:-tabela-de-conteúdos)
 - :construction_worker: [Installation](#:construction_worker:-instalação)
 - :open_file_folder: [Architecture](#:open_file_folder:-diretórios)
 

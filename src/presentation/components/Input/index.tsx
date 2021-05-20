@@ -8,6 +8,7 @@ import { styles } from "./styles";
 
 interface IInputProps extends TextInputProps {
   icon: string;
+  test_id?: string;
   placeholder?: string;
   getInputValue: (text: string) => void;
   searchError?: boolean;
@@ -15,6 +16,7 @@ interface IInputProps extends TextInputProps {
 
 const Input: React.FC<IInputProps> = ({
   getInputValue,
+  test_id,
   placeholder,
   searchError,
   icon,
@@ -54,6 +56,7 @@ const Input: React.FC<IInputProps> = ({
         name={icon}
       />
       <TextInput
+        testID={test_id}
         style={styles.textInput}
         ref={inputElementRef}
         placeholderTextColor={PaletteColors.$paletteGrey600}

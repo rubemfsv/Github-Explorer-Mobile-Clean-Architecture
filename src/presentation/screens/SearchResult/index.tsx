@@ -41,6 +41,7 @@ const SearchResult: React.FC<SearchResultTypes> = ({
           </Text>
         </View>
         <FlatList
+          testID="card-slide"
           style={styles.searchList}
           data={searchResult}
           keyExtractor={(item) => item.id}
@@ -54,7 +55,7 @@ const SearchResult: React.FC<SearchResultTypes> = ({
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button onPress={handleBack}>
+        <Button test_id="back_button" onPress={handleBack}>
           <>
             <FeatherIcon name={"arrow-left"} style={styles.backIcon} />
             {"  "}

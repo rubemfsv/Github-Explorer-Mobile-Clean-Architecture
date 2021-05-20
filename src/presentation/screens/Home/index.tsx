@@ -40,6 +40,7 @@ const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
       </View>
       <View style={styles.bodyContainer}>
         <Input
+          test_id="search_user"
           icon="user"
           placeholder="Type a valid user"
           getInputValue={getInputValue}
@@ -51,6 +52,7 @@ const Home: React.FC<HomeTypes> = ({ loadUserInfo }: HomeTypes) => {
       </View>
       <View style={styles.buttonContainer}>
         <Button
+          test_id="search_button"
           onPress={searchUser ? () => handlePress(searchUser) : undefined}
           enabled={searchUser ? true : false}
         >

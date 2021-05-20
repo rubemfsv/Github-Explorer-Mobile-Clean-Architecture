@@ -1,6 +1,7 @@
 # Welcome to Github Explorer Mobile
 
 Project directed to the study of clean architecture applied in a React Native application.
+
 ## Proposal
 
 It is an application to search for information about users registered on Github, to be able to see their repositories, their gists, their followers and who they are following. You can also view information specific to repositories, gists and other followers.
@@ -30,7 +31,23 @@ Third step:
 
 Fourth step:
 
-`yarn android` or `yarn ios`  - to install the project in the emulator
+`yarn android` or `yarn ios` - to install the project in the emulator
+
+- Test e2e with Detox
+
+First Step:
+
+Adjust your emulator inside detox.config.js changing the device avdName
+
+Second Step:
+
+`cd android` - to access the android folder
+
+Third Step:
+run `./gradlew assembleAndroidTest`
+
+Fourth Step:
+run `yarn detox:debug` to execute the test
 
 ## :open_file_folder: Architecture
 

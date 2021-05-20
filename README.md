@@ -37,7 +37,7 @@ Fourth step:
 
 First Step:
 
-Adjust your emulator inside detox.config.js changing the device avdName
+Adjust your emulator inside `detox.config.js` changing the device `avdName`
 
 Second Step:
 

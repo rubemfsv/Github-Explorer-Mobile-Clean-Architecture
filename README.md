@@ -33,7 +33,7 @@ Fourth step:
 
 `yarn android` or `yarn ios` - to install the project in the emulator
 
-- Test e2e with Detox
+**Test e2e with Detox**
 
 First Step:
 

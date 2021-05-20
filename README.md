@@ -9,6 +9,7 @@ It is an application to search for information about users registered on Github,
 # :pushpin: Sumary
 
 - :construction_worker: [Installation](#:construction_worker:-instalação)
+- :gear: [Test e2e with Detox](#:open_file_folder:-diretórios)
 - :open_file_folder: [Architecture](#:open_file_folder:-diretórios)
 
 # :construction_worker: Installation
@@ -33,7 +34,7 @@ Fourth step:
 
 `yarn android` or `yarn ios` - to install the project in the emulator
 
-**Test e2e with Detox**
+# :gear: Test e2e with Detox
 
 First Step:
 
@@ -47,12 +48,13 @@ Third Step:
 run `./gradlew assembleAndroidTest`
 
 Fourth Step:
-run `yarn detox:debug` to execute the test
+run `yarn detox:debug` to execute the tests
 
 ## :open_file_folder: Architecture
 
 ```
 android/
+e2e/
 ios/
 src/
   data/

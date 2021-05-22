@@ -133,6 +133,7 @@ const UserInfo: React.FC<UserInfoTypes> = ({
         </View>
         <View style={styles.statisticContainer}>
           <ScrollView
+            testID={"card-slide"}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.tabContainer}

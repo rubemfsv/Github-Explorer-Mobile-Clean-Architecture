@@ -41,7 +41,7 @@ const SearchResult: React.FC<SearchResultTypes> = ({
           </Text>
         </View>
         <FlatList
-          testID="card-slide"
+          testID="search-slide"
           style={styles.searchList}
           data={searchResult}
           keyExtractor={(item) => item.id}

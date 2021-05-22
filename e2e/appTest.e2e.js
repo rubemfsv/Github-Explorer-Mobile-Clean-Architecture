@@ -32,8 +32,6 @@ describe("Search Flow", () => {
     // Checking if found the user checking if the label public repos is showing
     await expect(element(by.text("Public Repos"))).toBeVisible();
 
-    await expect(element(by.id("card-slide"))).swipe("right");
-
     // Executing a tap/press on the Public Repos card
     await element(by.text("Public Repos")).tap();
     // Executing a tap/press to back to dashboard
@@ -41,15 +39,26 @@ describe("Search Flow", () => {
 
     // Executing a tap/press on the Public Gists card
     await element(by.text("Public Gists")).tap();
+
     // Executing a tap/press to back to dashboard
     await element(by.id("back_button")).tap();
+
+    // Swiping left
+    await element(by.id("card-slide")).swipe("left");
 
     // Executing a tap/press on the Followers card
     await element(by.text("Followers")).tap();
     // Executing a tap/press to back to dashboard
     await element(by.id("back_button")).tap();
 
-    await element(by.text("24")).tap();
+    // Executing a tap/press on the Following card
+    await element(by.text("Following")).tap();
+    // Executing a tap/press to back to dashboard
     await element(by.id("back_button")).tap();
+
+    // Swiping right
+    await element(by.id("card-slide")).swipe("right");
+    // Executing a tap/press to back to dashboard
+    // await element(by.Text("Back")).tap();
   });
 });

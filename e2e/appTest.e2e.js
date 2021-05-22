@@ -58,7 +58,5 @@ describe("Search Flow", () => {
 
     // Swiping right
     await element(by.id("card-slide")).swipe("right");
-    // Executing a tap/press to back to dashboard
-    // await element(by.Text("Back")).tap();
   });
 });

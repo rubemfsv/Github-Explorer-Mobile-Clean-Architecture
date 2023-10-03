@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Welcome to Github Explorer Mobile
 
 Project directed to the study of clean architecture applied in a React Native application.
@@ -11,6 +12,7 @@ It is an application to search for information about users registered on Github,
 - :construction_worker: [Installation](#:construction_worker:-instalação)
 - :gear: [Test e2e with Detox](#:open_file_folder:-diretórios)
 - :open_file_folder: [Architecture](#:open_file_folder:-diretórios)
+- :page_facing_up: [License](#page_facing_up-license)
 
 # :construction_worker: Installation
 
@@ -91,3 +93,8 @@ src/
     test/
     validators/
 ```
+
+# :page_facing_up: License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

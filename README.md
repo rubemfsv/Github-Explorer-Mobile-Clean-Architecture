@@ -98,3 +98,5 @@ src/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+Please adhere to and review our [Code Of Conduct](https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/blob/add-code-of-conduct/CODE_OF_CONDUCT.md).
+

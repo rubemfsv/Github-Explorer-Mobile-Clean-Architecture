@@ -94,9 +94,34 @@ src/
     validators/
 ```
 
+# :technologist: Contributors
+
+Thanks to these wonderful people who have contributed in this project ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/rubemfsv"><img src="https://avatars.githubusercontent.com/u/11760617?v=4" width="100px;" alt="Rubem Vasconcelos"/><br /><sub><b>Rubem Vasconcelos</b></sub></a><br /> <a href="#maintenance-rubemfsv" title="Maintenance">🚧</a><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=rubemfsv" title="Code">💻</a><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/pulls?q=is%3Apr+reviewed-by%3Arubemfsv" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.biodrop.io/jfmartinz"><img src="https://avatars.githubusercontent.com/u/129386460?v=4" width="100px;" alt="Joseph Martin"/><br /><sub><b>Joseph Martin</b></sub></a><br /><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=jfmartinz" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://bkpecho.tech/"><img src="https://avatars.githubusercontent.com/u/91954699?v=4" width="100px;" alt="Bryan King Pecho"/><br /><sub><b>Bryan King Pecho</b></sub></a><br /><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=bkpecho" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ghOst-vedant"><img src="https://avatars.githubusercontent.com/u/71282147?v=4" width="100px;" alt="Vedant"/><br /><sub><b>Vedant</b></sub></a><br /><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=ghOst-vedant" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://theamazingatharva.hashnode.dev/"><img src="https://avatars.githubusercontent.com/u/121221252?v=4" width="100px;" alt="Atharva Salitri"/><br /><sub><b>Atharva Salitri</b></sub></a><br /><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=the-amazing-atharva" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/manviii27"><img src="https://avatars.githubusercontent.com/u/91899444?v=4" width="100px;" alt="Manvi Haritwal"/><br /><sub><b>Manvi Haritwal</b></sub></a><br /><a href="https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/commits?author=manviii27" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 # :page_facing_up: License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Please adhere to and review our [Code Of Conduct](https://github.com/rubemfsv/Github-Explorer-Mobile-Clean-Architecture/blob/add-code-of-conduct/CODE_OF_CONDUCT.md).
-

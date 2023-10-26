@@ -1,6 +1,6 @@
 {
   "name": "githubexplorer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -8,21 +8,27 @@
     "start": "react-native start",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "yarn test -- --watch",
-    "detox:debug":"detox test -c android.emu.debug",
-    "detox:release":"detox test -c android.emu.release"
+    "detox:debug": "detox test -c android.emu.debug",
+    "detox:release": "detox test -c android.emu.release",
+    "release": "release-it"
   },
   "dependencies": {
+    "@commitlint/cli": "^17.8.0",
+    "@commitlint/config-conventional": "^17.8.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
+    "@release-it/conventional-changelog": "^7.0.2",
     "axios": "^0.21.1",
+    "husky": "^8.0.3",
     "react": "17.0.1",
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-normalize": "^1.0.1",
     "react-native-reanimated": "^2.0.1",
     "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "^2.18.1"
+    "react-native-screens": "^2.18.1",
+    "release-it": "^16.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -51,6 +57,39 @@
   },
   "resolutions": {
     "@types/react": "^17"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "chore",
+              "hidden": true
+            }
+          ]
+        }
+      }
+    }
   },
   "jest": {
     "preset": "react-native",
